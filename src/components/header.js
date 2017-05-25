@@ -6,12 +6,12 @@ import { View, Text, Image, Dimensions } from 'react-native';
 
 //create a component
 const Header = (props) => {
-  const { text, view } = styles;
+  const { text, container } = styles;
   return (
     // <View style={view}>
     <Image
       source={require("../images/Header-BG.jpg")}
-      style={view}
+      style={container}
     >
       <Text style={text}> 
         Wizdom: 
@@ -29,11 +29,10 @@ const styles = {
     // color: 'white',
     backgroundColor: 'rgba(0,0,0,0)',
   },
-  view: {
+  container: {
     // shadowColor: 'blue',
     // shadowOffset: { width: 0, height: 20 },
     // shadowOpacity: 0.5,
-    // backgroundColor: 'orange',
     justifyContent: 'flex-end',
     alignItems: 'center',
     alignSelf: 'center',
