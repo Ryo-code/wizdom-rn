@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
 
 export default class FooterBtn extends Component {
   constructor(props) {
@@ -8,17 +9,25 @@ export default class FooterBtn extends Component {
   }
 
   render() {
-    const { button, btnText } = styles;
+    const { button, btnContent, btnText, btnIcon } = styles;
 
     return (
       <Image
         style={button}
         source={require("../images/button-BG-unselected.jpg")}
       >
-        <Text style={btnText}>
-          {this.props.btnTitle}
+        <View style={btnContent}>
+          <Icon 
+            name='add-user' 
+            // allowFontScaling
+            size={30}
+            style={btnIcon}
+          />
+          <Text style={btnText}>
+            {this.props.btnTitle}
+          </Text>
 
-        </Text>
+        </View>
       </Image>
     )
   }
@@ -28,17 +37,26 @@ const styles = {
   button: {
     backgroundColor: 'orange',
     flex: 1,
-    height: 50,
+    height: 55,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: .5,
     borderColor: 'firebrick',
     // padding: 2,
   },
-  btnText: {
+  btnContent:{
     backgroundColor: 'rgba(0, 0, 0, 0)',
+    // paddingTop: 20,
+    // paddingBottom: 20,
+  },
+
+  btnText: {
     color: 'brown',
     fontWeight: '500',
     fontSize: 16,
+  },
+  btnIcon: {
+    alignSelf: 'center',
   }
+
 }
