@@ -14,8 +14,8 @@ const Header = (props) => {
       style={container}
     >
       <Text style={text}> 
-        Wizdom: 
-        // {props.headerText} 
+        Wizdom... 
+        {props.headerText} 
       </Text>
     </Image>
   )
@@ -26,7 +26,7 @@ const styles = {
     fontSize: 20,
     marginBottom: 5,
     fontWeight: '700',
-    // color: 'white',
+    color: 'white',
     backgroundColor: 'rgba(0,0,0,0)',
   },
   container: {

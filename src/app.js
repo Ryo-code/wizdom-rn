@@ -5,7 +5,7 @@ import Footer from './components/footer';
 import Content from './components/content';
 
 const App = () => (
-  <View>
+  <View style={{flex: 1}}>
     <Header headerText={"yo"}/>
     <Text>w00t w00t~~~~!</Text>
     <Content/>

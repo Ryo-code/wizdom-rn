@@ -3,17 +3,36 @@ import { View, Text, Image } from 'react-native';
 import FooterBtn from './footerBtn';
 
 export default class Footer extends Component {
-  state = {}; //access via "this.state"
+  state = {}; //access via "this.state"... "this.setState" updates the state
+  //「state」はデータをアップデートするためで、「props」は親から子にデータを送るためだ
 
   render(){
+    const { footerRow } = styles;
+
     return (
-      <View>
-        <Text>yooooo, this is from footer.js</Text>
-        <FooterBtn/>
-        <FooterBtn/>
-        <FooterBtn/>
+      <View
+        style={footerRow}
+      >
+        <FooterBtn
+          btnTitle={"Fact"}
+        />
+        <FooterBtn
+          btnTitle={"Definition"}
+        />
+        <FooterBtn
+          btnTitle={"Quotation"}
+        />
       </View>
     );
   }
 }
 
+styles = {
+  footerRow: {
+    flexDirection: 'row',
+    bottom: 0,
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}
