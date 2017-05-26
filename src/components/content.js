@@ -7,7 +7,7 @@ export default class Content extends Component {
     
     return(
         <ScrollView contentContainerStyle={wrapper}>
-          <Text style={{backgroundColor: 'pink'}}>
+          <Text>
             I am from the mighty CONTENT.JS file
           </Text>
         </ScrollView>
@@ -20,7 +20,7 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'yellow',
+    backgroundColor: 'snow',
     margin: 30,
     bottom: 25
   },
