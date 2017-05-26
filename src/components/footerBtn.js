@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 
-const FooterBtn = (props) => {
+export default class FooterBtn extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-  const { button, btnText } = styles;
-  return (
-    <Image 
-      style={button}
-      source={require("../images/button-BG-unselected.jpg")}
-    >
-      <Text style={btnText}> 
-        {props.btnTitle} 
-      </Text>
-    </Image>
-  )
+  render() {
+    const { button, btnText } = styles;
+
+    return (
+      <Image
+        style={button}
+        source={require("../images/button-BG-unselected.jpg")}
+      >
+        <Text style={btnText}>
+          {this.props.btnTitle}
+
+        </Text>
+      </Image>
+    )
+  }
 }
 
 const styles = {
@@ -25,6 +33,7 @@ const styles = {
     justifyContent: 'center',
     borderWidth: .5,
     borderColor: 'firebrick',
+    // padding: 2,
   },
   btnText: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -33,5 +42,3 @@ const styles = {
     fontSize: 16,
   }
 }
-
-export default FooterBtn;

@@ -8,16 +8,18 @@ import { View, Text, Image, Dimensions } from 'react-native';
 const Header = (props) => {
   const { text, container } = styles;
   return (
-    // <View style={view}>
-    <Image
-      source={require("../images/Header-BG.jpg")}
+    <View 
       style={container}
     >
-      <Text style={text}> 
-        Wizdom... 
-        {props.headerText} 
-      </Text>
-    </Image>
+      <Image
+        source={require("../images/Header-BG.jpg")}
+      >
+        <Text style={text}> 
+          Wizdom... 
+          {props.headerText} 
+        </Text>
+      </Image>
+    </View>
   )
 };
 
@@ -38,7 +40,8 @@ const styles = {
     alignSelf: 'center',
     height: 50,
     // elevation: 2, //z-indexみたいなんでしょうかね。。。
-    position: 'relative', //必要なのかなあ
+    // position: 'relative', //必要なのかなあ
+    // flex: 1,
   },
 
 }

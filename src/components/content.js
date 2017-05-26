@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, Dimensions } from 'react-native';
 
 export default class Content extends Component {
-  componentWillMount(){
-    console.log("componentWillMount has just run inside content.js");
-  }
-
   render(){
+    const { wrapper } = styles;
+    
     return(
-      <View>
-        <Text> 
-          I am from the mighty CONTENT.JS file
-        </Text>
-      </View>
+        <ScrollView contentContainerStyle={wrapper}>
+          <Text style={{backgroundColor: 'pink'}}>
+            I am from the mighty CONTENT.JS file
+          </Text>
+        </ScrollView>
     );
   }
+}
+
+const styles = {
+  wrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'yellow',
+    margin: 30,
+    bottom: 25
+  },
 }

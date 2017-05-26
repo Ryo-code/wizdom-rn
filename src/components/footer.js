@@ -15,12 +15,15 @@ export default class Footer extends Component {
       >
         <FooterBtn
           btnTitle={"Fact"}
+          btnIcon={"ICON"}
         />
         <FooterBtn
           btnTitle={"Definition"}
+          btnIcon={"ICON"}
         />
         <FooterBtn
           btnTitle={"Quotation"}
+          btnIcon={"ICON"}
         />
       </View>
     );
@@ -34,5 +37,9 @@ styles = {
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 2,
+    // borderWidth: 3,
+    // borderColor: "blue",
+    // // height: 150
   },
 }
