@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import FooterBtn from './footerBtn';
 
-const Footer = (props) => {
+export default class Footer extends Component {
+  state = {}; //access via "this.state"
 
-  return (
-    <View>
-      <Text>yooooo, this is from footer.js</Text>
-      <FooterBtn/>
-      <FooterBtn/>
-      <FooterBtn/>
-    </View>
-  )
+  render(){
+    return (
+      <View>
+        <Text>yooooo, this is from footer.js</Text>
+        <FooterBtn/>
+        <FooterBtn/>
+        <FooterBtn/>
+      </View>
+    );
+  }
 }
 
-export default Footer;

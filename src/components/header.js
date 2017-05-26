@@ -37,7 +37,6 @@ const styles = {
     alignItems: 'center',
     alignSelf: 'center',
     height: 50,
-    // width: x,
     // elevation: 2, //z-indexみたいなんでしょうかね。。。
     position: 'relative', //必要なのかなあ
   },
