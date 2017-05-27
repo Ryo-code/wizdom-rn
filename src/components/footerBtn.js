@@ -1,62 +1,69 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class FooterBtn extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isSelected: false
+    };
   }
 
   render() {
-    const { button, btnContent, btnText, btnIcon } = styles;
+    const { wrapper, buttonBG, btnContent, btnText, btnIcon } = styles;
 
     return (
       <Image
-        style={button}
+        style={buttonBG}
         source={require("../images/button-BG-unselected.jpg")}
       >
-        <View style={btnContent}>
-          <Icon 
-            name='add-user' 
-            // allowFontScaling
-            size={30}
+        <TouchableOpacity style={btnContent}>
+
+          <Icon
+            name={this.props.buttonIcon}
             style={btnIcon}
           />
-          <Text style={btnText}>
-            {this.props.btnTitle}
-          </Text>
-
-        </View>
+          <Text style={btnText}> {this.props.btnTitle} </Text>
+        </TouchableOpacity>
       </Image>
     )
   }
 }
 
 const styles = {
-  button: {
-    backgroundColor: 'orange',
+  wrapper: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonBG: {
     flex: 1,
     height: 55,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: .5,
     borderColor: 'firebrick',
-    // padding: 2,
   },
-  btnContent:{
+  btnContent: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
-    // paddingTop: 20,
-    // paddingBottom: 20,
+    justifyContent: 'space-between',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: .5,
+    shadowRadius: 3,
+    shadowColor: 'brown',
+    paddingLeft: '27%',
+    paddingRight: '27%',
   },
-
   btnText: {
     color: 'brown',
     fontWeight: '500',
-    fontSize: 16,
+    fontSize: 10,
   },
   btnIcon: {
     alignSelf: 'center',
+    color: 'brown',
+    fontSize: 27,
+    marginBottom: 5,
   }
-
 }

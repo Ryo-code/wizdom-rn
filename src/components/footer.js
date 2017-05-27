@@ -14,16 +14,19 @@ export default class Footer extends Component {
         style={footerRow}
       >
         <FooterBtn
-          btnTitle={"Fact"}
-          btnIcon={"ICON"}
+          btnTitle={"Definition"}
+          buttonIcon={"book"}
+          isSelected={false}
         />
         <FooterBtn
-          btnTitle={"Definition"}
-          btnIcon={"ICON"}
+          btnTitle={"Fact"}
+          buttonIcon={"globe"}
+          isSelected={false}
         />
         <FooterBtn
           btnTitle={"Quotation"}
-          btnIcon={"ICON"}
+          buttonIcon={"quote-right"}
+          isSelected={false}
         />
       </View>
     );
@@ -38,8 +41,5 @@ styles = {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 2,
-    // borderWidth: 3,
-    // borderColor: "blue",
-    // // height: 150
   },
 }
