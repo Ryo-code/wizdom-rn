@@ -3,12 +3,6 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class FooterBtn extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSelected: false
-    };
-  }
 
   render() {
     const { wrapper, buttonBG, btnContent, btnText, btnIcon } = styles;
@@ -18,13 +12,16 @@ export default class FooterBtn extends Component {
         style={buttonBG}
         source={require("../images/button-BG-unselected.jpg")}
       >
-        <TouchableOpacity style={btnContent}>
+        <TouchableOpacity 
+          style={btnContent}
+          // onClick={() => this.props.change("quotation") }
+        >
 
           <Icon
             name={this.props.buttonIcon}
             style={btnIcon}
           />
-          <Text style={btnText}> {this.props.btnTitle} </Text>
+          <Text style={btnText}> {this.props.active} {this.props.btnTitle} </Text>
         </TouchableOpacity>
       </Image>
     )

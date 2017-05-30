@@ -1,25 +1,28 @@
-//import libraries
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Image, Dimensions } from 'react-native';
 
-// const x = Dimensions.get('window').width; //width of the device
+export default class Header extends Component {
+  constructor(props){
+    super(props);
+  }
 
-//create a component
-const Header = (props) => {
+  render(){
   const { text, container } = styles;
-  return (
-    <View>
-      <Image
-        style={container}
-        source={require("../images/Header-BG.jpg")}
-      >
-        <Text style={text}> 
-          Wizdom... 
-          {props.headerText} 
-        </Text>
-      </Image>
-    </View>
-  )
+
+    return (
+      <View>
+        <Image
+          style={container}
+          source={require("../images/Header-BG.jpg")}
+        >
+          <Text style={text}>
+            Wizdom...
+            {this.props.headerText}
+          </Text>
+        </Image>
+      </View>
+    )
+  }
 };
 
 const styles = {
@@ -36,6 +39,3 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0)',
   },
 }
-
-//make the component available to other parts of the app
-export default Header;

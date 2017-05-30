@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 
 export default class Content extends Component {
+    constructor(props){
+    super(props);
+  }
+
   render(){
     const { wrapper } = styles;
     
@@ -9,6 +13,9 @@ export default class Content extends Component {
         <ScrollView contentContainerStyle={wrapper}>
           <Text>
             I am from the mighty CONTENT.JS file
+          </Text>
+          <Text>
+            Something should render: { this.props.info.content }
           </Text>
         </ScrollView>
     );
