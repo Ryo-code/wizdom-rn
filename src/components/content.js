@@ -15,7 +15,7 @@ export default class Content extends Component {
             I am from the mighty CONTENT.JS file
           </Text>
           <Text>
-            Something should render: { this.props.info.content }
+            Something should render: { this.props.info }
           </Text>
         </ScrollView>
     );

@@ -7,7 +7,11 @@ export default class Header extends Component {
   }
 
   render(){
+
   const { text, container } = styles;
+  const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
     return (
       <View>
@@ -16,8 +20,7 @@ export default class Header extends Component {
           source={require("../images/Header-BG.jpg")}
         >
           <Text style={text}>
-            Wizdom...
-            {this.props.headerText}
+            {capitalize(this.props.headerText)} of the Day
           </Text>
         </Image>
       </View>

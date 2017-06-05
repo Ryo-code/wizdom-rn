@@ -9,20 +9,22 @@ import Content from './components/content';
 // pass function to footer
 
 export default class App extends Component {
-    // this.changeState = this.changeState.bind(this);
   state = {
       title: 'definition',
       icon: 'book',
-      content: 'contenttttt'
+      active: 'definition',
+      content: 'render this inside content.js...'
   };
 
+  // ON BUTTON PRESS
   changeState(selected){
     console.log('"selected" is this...', selected);
     this.setState({
         title: selected.title,
-        icon: selected.icon
+        icon: selected.icon,
+        active: true,
     });
-  }
+  };
 
   render() {
     console.log('this.state ~~>', this.state);
@@ -33,10 +35,9 @@ export default class App extends Component {
         />
         <Content 
           info={this.state.content}
-          // activeTab={this.state.tab}
         />
         <Footer 
-          active={this.state.title}
+          current={this.state.title}
           change={this.changeState.bind(this)}
           buttonIcon={this.state.icon}
         />

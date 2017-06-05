@@ -1,23 +1,8 @@
+'use strict';
+
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-// import FooterBtn from './footerBtn';
-
-// const footerButton = () => (
-//   <TouchableOpacity
-//     btnTitle={"Definition"}
-//     buttonIcon={"book"}
-//     active={this.props.active.title}
-//     change={() => this.props.change(this.props.active.title)}
-//   />
-// )
-
-// const First = ({ children }) => (
-//   <div>
-//     { children }
-//     <Second />
-//   </div>
-// )
 
 export default class Footer extends Component {
   render() {
@@ -28,32 +13,35 @@ export default class Footer extends Component {
 
     const capitalize = (string) => {
       return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+    };
 
     const tabs = [
       {
           title: 'definition',
-          icon: 'book'
+          icon: 'book',
       }, {
           title: 'fact',
-          icon: 'globe'
+          icon: 'globe',
       }, {
           title: 'quotation',
-          icon: 'quote-right'
+          icon: 'quote-right',
       }
     ];
-    console.log('this.props ====>', this.props);
 
-    // 
-    // 
-    // 
+    const showDarkBGifActive = (tab) => {
+      let tabBG = require("../images/button-BG-unselected.jpg");
+      if(this.props.current === tab.title){
+        tabBG = require("../images/button-BG-selected.jpg");
+      }
+      return tabBG;
+    };
 
     return (
       <View style={footerRow}>
         {
           tabs.map((tab) => 
           <Image style={buttonBG}
-            source={require("../images/button-BG-unselected.jpg")}
+            source={showDarkBGifActive(tab)}
             btnTitle={tab.title}
             buttonIcon={tab.icon}
             key={tab.icon.length}
@@ -66,7 +54,7 @@ export default class Footer extends Component {
                 name={tab.icon}
                 style={btnIcon}
               />
-              <Text style={btnText}> {this.props.active}  {capitalize(tab.title)} </Text>
+              <Text style={btnText}> {capitalize(tab.title)} </Text>
             </TouchableOpacity>
           </Image>
           )
@@ -76,7 +64,7 @@ export default class Footer extends Component {
   }
 }
 
-styles = {
+const styles = {
   footerRow: {
     flexDirection: 'row',
     bottom: 0,
