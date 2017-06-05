@@ -14,10 +14,10 @@ export default class App extends Component {
       title: 'definition',
       icon: 'book',
       content: 'contenttttt'
-  }
+  };
 
   changeState(selected){
-    console.log('meow', selected);
+    console.log('"selected" is this...', selected);
     this.setState({
         title: selected.title,
         icon: selected.icon
@@ -25,7 +25,7 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('this.state --->', this.state);
+    console.log('this.state ~~>', this.state);
     return (
       <View style={{ flex: 1 }}>
         <Header 

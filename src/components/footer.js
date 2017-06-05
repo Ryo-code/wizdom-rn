@@ -42,7 +42,11 @@ export default class Footer extends Component {
           icon: 'quote-right'
       }
     ];
-    console.log('this.props -->', this.props);
+    console.log('this.props ====>', this.props);
+
+    // 
+    // 
+    // 
 
     return (
       <View style={footerRow}>
@@ -56,13 +60,13 @@ export default class Footer extends Component {
           >
             <TouchableOpacity 
               style={btnContent}
-              onClick={this.props.change}
+              onPress={() => this.props.change(tab)}
             >
               <Icon
                 name={tab.icon}
                 style={btnIcon}
               />
-              <Text style={btnText}> {this.props.active} {capitalize(tab.title)} </Text>
+              <Text style={btnText}> {this.props.active}  {capitalize(tab.title)} </Text>
             </TouchableOpacity>
           </Image>
           )
