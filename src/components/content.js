@@ -29,11 +29,11 @@ export default class Content extends Component {
             <Text> | c : whatnot enjoys skiing, hiking, or whatever</Text>
           </Text>
           <Text style={exampleBox}>
-            <Text style={exampleText}>Example 1:</Text>
-            <Text> So I was out with my friends and whatever when suddenly this chick pulls up and stuff... omg dawg</Text>
+            <Text style={exampleText}>Example 1: </Text>
+            <Text> I asked how his day was and all he said was "whatever..." it's so annoying!</Text>
           </Text>
           <Text style={exampleBox}>
-            <Text style={exampleText}>Example 2:</Text>
+            <Text style={exampleText}>Example 2: </Text>
             <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend John said he said something totally different, like omg!</Text>
           </Text>
           <View style={didYouKnowBox}>
@@ -84,7 +84,6 @@ export default class Content extends Component {
       }
     };
 
-
     return (
       <ScrollView contentContainerStyle={wrapper}>
         {
@@ -103,7 +102,6 @@ export default class Content extends Component {
   }
 }
 
-//WOTD, defType, definitions, example1, example2, didYouKnow
 const styles = {
   wrapper: {
     alignItems: 'center',
@@ -113,8 +111,6 @@ const styles = {
     bottom: 25,
   },
   defBox: {
-    // backgroundColor: 'rgba(230, 230, 230, 230)',
-    // margin: 0,
     borderColor: 'orange',
     borderBottomWidth: 1,
     paddingBottom: 10,
@@ -135,24 +131,26 @@ const styles = {
     fontStyle: 'italic',
   },
   definitions: {
-    marginTop: 10,
+    // marginTop: 10,
     marginBottom: 10,
   },
   exampleBox: {
     marginTop: 10,
   },
   exampleText: {
-    fontWeight: '900',
+    fontWeight: '700',
     color: 'orange',
-    fontSize: 13
+    fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Regular' : 'serif',
+    fontSize: 13,
   },
   didYouKnowBox: {
-    marginTop: 10,
+    marginTop: 20,
     backgroundColor: 'rgba(240, 240, 240, 240)',
     padding: 10,
     borderRadius: 10,
   },
   didYouKnow: {
     fontStyle: 'italic',
+    fontWeight: '500'
   },
 }
