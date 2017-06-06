@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Dimensions } from 'react-native';
+import { View, Text, ScrollView, Dimensions, Platform } from 'react-native';
 //import scraper in this file?
 
 export default class Content extends Component {
@@ -9,14 +9,37 @@ export default class Content extends Component {
 
   render() {
 
+    const { wrapper, WOTD, defTypeAndPronunciation, defBox, defType, definitions, 
+      exampleText, exampleBox, 
+      didYouKnowBox, didYouKnow } = styles;
+
     let showDefinition = () => {
       return (
-        <View>
-          <Text> Word of the day: STUFF </Text>
-          <Text> (noun) </Text>
-          <Text> Definition: The meaning of the word "stuff" is WHATEVER </Text>
-          <Text> Example 1: "Hey, I like yer stuff" </Text>
-          <Text> Example 2: "Get your stuff out of my face!" </Text>
+        <View style={{marginBottom: 75}}>
+          <View style={defBox}>
+            <Text style={WOTD}>whatever </Text>
+            <Text style={defTypeAndPronunciation}>
+              <Text> what·ev·er | </Text>
+              <Text style={defType}>pronoun</Text>
+            </Text>
+          </View>
+          <Text style={definitions}>
+            <Text>a : anything or everything that take whatever you want </Text>
+            <Text> | b : no matter what whatever he says, they won't believe him</Text>
+            <Text> | c : whatnot enjoys skiing, hiking, or whatever</Text>
+          </Text>
+          <Text style={exampleBox}>
+            <Text style={exampleText}>Example 1:</Text>
+            <Text> So I was out with my friends and whatever when suddenly this chick pulls up and stuff... omg dawg</Text>
+          </Text>
+          <Text style={exampleBox}>
+            <Text style={exampleText}>Example 2:</Text>
+            <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend John said he said something totally different, like omg!</Text>
+          </Text>
+          <View style={didYouKnowBox}>
+            <Text style={didYouKnow}>Food for Thought - a poem about Whatever: </Text>
+            <Text> "Whatever is we only know As in our minds we find it so; No staring fact is half so clear As one dim, preconceived idea -- No matter how the fact may glow. Vainly may Truth her trumpet blow To stir our minds; like heavy dough They stick to what they think — won’t hear Whatever is. Our ancient myths in solid row Stand up — we simply have to go And choke each fiction old and dear Before the modest facts appear; Then we may grasp, reluctant, slow, Whatever is." </Text>
+          </View>
         </View>
       );
     };
@@ -61,7 +84,6 @@ export default class Content extends Component {
       }
     };
 
-    const { wrapper } = styles;
 
     return (
       <ScrollView contentContainerStyle={wrapper}>
@@ -81,13 +103,56 @@ export default class Content extends Component {
   }
 }
 
+//WOTD, defType, definitions, example1, example2, didYouKnow
 const styles = {
   wrapper: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'snow',
+    // backgroundColor: 'snow',
     margin: 30,
-    bottom: 25
+    bottom: 25,
+  },
+  defBox: {
+    // backgroundColor: 'rgba(230, 230, 230, 230)',
+    // margin: 0,
+    borderColor: 'orange',
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+    marginBottom: 10,
+  },
+  WOTD: {
+    fontSize: 32,
+    textAlign: 'center',
+    fontWeight: '700',
+    fontFamily: (Platform.OS === 'ios') ? 'Iowan Old Style' : 'serif',
+  },
+  defTypeAndPronunciation: {
+    textAlign: 'center',
+    color: 'firebrick',
+    fontWeight: '100',
+  },
+  defType: {
+    fontStyle: 'italic',
+  },
+  definitions: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  exampleBox: {
+    marginTop: 10,
+  },
+  exampleText: {
+    fontWeight: '900',
+    color: 'orange',
+    fontSize: 13
+  },
+  didYouKnowBox: {
+    marginTop: 10,
+    backgroundColor: 'rgba(240, 240, 240, 240)',
+    padding: 10,
+    borderRadius: 10,
+  },
+  didYouKnow: {
+    fontStyle: 'italic',
   },
 }
