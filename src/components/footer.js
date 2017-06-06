@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -36,8 +34,6 @@ export default class Footer extends Component {
       }
       return tabBG;
     };
-
-    // const 
 
     return (
       <View style={footerRow}>

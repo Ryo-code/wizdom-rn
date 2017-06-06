@@ -7,8 +7,7 @@ export default class Header extends Component {
   }
 
   render() {
-
-    console.log("Hi, I'm from the HEADER file");
+    // console.log("Hi, I'm from the HEADER file");
 
     const { text, container } = styles;
     const capitalize = (string) => {

@@ -15,15 +15,14 @@ export default class App extends Component {
 
   // ON BUTTON PRESS
   changeState(selected){
-    console.log('"selected" is this...', selected);
+    // console.log('"selected" is this...', selected);
     this.setState({
         title: selected.title,
-        icon: selected.icon,
     });
   };
 
   render() {
-    console.log('this.state ~~>', this.state);
+    // console.log('this.state ~~>', this.state);
     return (
       <View style={{ flex: 1 }}>
         <Header 
@@ -31,12 +30,10 @@ export default class App extends Component {
         />
         <Content 
           current={this.state.title}
-          info={this.state.content}
         />
         <Footer 
           current={this.state.title}
           change={this.changeState.bind(this)}
-          buttonIcon={this.state.icon}
         />
       </View>
     )

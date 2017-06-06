@@ -3,35 +3,80 @@ import { View, Text, ScrollView, Dimensions } from 'react-native';
 //import scraper in this file?
 
 export default class Content extends Component {
-    constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  render(){
+  render() {
 
+    let showDefinition = () => {
+      return (
+        <View>
+          <Text> Word of the day: STUFF </Text>
+          <Text> (noun) </Text>
+          <Text> Definition: The meaning of the word "stuff" is WHATEVER </Text>
+          <Text> Example 1: "Hey, I like yer stuff" </Text>
+          <Text> Example 2: "Get your stuff out of my face!" </Text>
+        </View>
+      );
+    };
+
+    let showFact = () => {
+      return (
+        <View>
+          <Text> Stuff happens nine 9 out of 10 times per day for the average mammal </Text>
+        </View>
+      );
+    };
+
+    let showQuotation = () => {
+      return (
+        <View>
+          <Text> Stuff is to things as people are to whatever... </Text>
+          <Text> -Martin Whatevs </Text>
+        </View>
+      );
+    };
 
     const tabs = [
       {
-          title: 'definition',
-          content: 'The meaning of the word "stuff" is WHATEVER',
+        title: 'definition',
+        content: showDefinition(),
       }, {
-          title: 'fact',
-          content: 'Stuff happens nine out of ten times per day for the average mammal',
+        title: 'fact',
+        content: showFact(),
       }, {
-          title: 'quotation',
-          content: 'Stuff is to things what people are to whatever... -Martin Whatevs',
+        title: 'quotation',
+        content: showQuotation(),
       }
     ];
 
-    const { wrapper } = styles;
-    
-    return(
-        <ScrollView contentContainerStyle={wrapper}>
-          <Text>
-            {tabs[0].content}
-          </Text>
+    const renderContentIfActive = (tab) => {
+      {console.log("    tab~~~~~~~~~!!!", tab.title)}
+      {console.log("current=========!!!", this.props.current)}
+      if(this.props.current === tab.title) {
+        console.log("It's a match!");
+        let currentContent = tab.content;
+        return currentContent;
+      }
+    };
 
-        </ScrollView>
+    const { wrapper } = styles;
+
+    return (
+      <ScrollView contentContainerStyle={wrapper}>
+        {
+          renderContentIfActive(tabs[0])
+
+          // for (var i = 0; i < tabs.length; i++){
+          //   renderContentIfActive(tab[i]);
+          // }
+          
+          // tabs.forEach((tab) => {
+          //   renderContentIfActive(tab);
+          // })
+        }
+      </ScrollView>
     );
   }
 }
