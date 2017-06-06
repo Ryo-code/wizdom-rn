@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { View, Text, Image, Dimensions } from 'react-native';
 
 export default class Header extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  render(){
+  render() {
 
-  const { text, container } = styles;
-  const capitalize = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
+    console.log("Hi, I'm from the HEADER file");
+
+    const { text, container } = styles;
+    const capitalize = (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    };
 
     return (
       <View>

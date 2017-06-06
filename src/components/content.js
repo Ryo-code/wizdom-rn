@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
+//import scraper in this file?
 
 export default class Content extends Component {
     constructor(props){
@@ -7,16 +8,29 @@ export default class Content extends Component {
   }
 
   render(){
+
+
+    const tabs = [
+      {
+          title: 'definition',
+          content: 'The meaning of the word "stuff" is WHATEVER',
+      }, {
+          title: 'fact',
+          content: 'Stuff happens nine out of ten times per day for the average mammal',
+      }, {
+          title: 'quotation',
+          content: 'Stuff is to things what people are to whatever... -Martin Whatevs',
+      }
+    ];
+
     const { wrapper } = styles;
     
     return(
         <ScrollView contentContainerStyle={wrapper}>
           <Text>
-            I am from the mighty CONTENT.JS file
+            {tabs[0].content}
           </Text>
-          <Text>
-            Something should render: { this.props.info }
-          </Text>
+
         </ScrollView>
     );
   }

@@ -11,9 +11,6 @@ import Content from './components/content';
 export default class App extends Component {
   state = {
       title: 'definition',
-      icon: 'book',
-      active: 'definition',
-      content: 'render this inside content.js...'
   };
 
   // ON BUTTON PRESS
@@ -22,7 +19,6 @@ export default class App extends Component {
     this.setState({
         title: selected.title,
         icon: selected.icon,
-        active: true,
     });
   };
 
@@ -34,6 +30,7 @@ export default class App extends Component {
           headerText={this.state.title}
         />
         <Content 
+          current={this.state.title}
           info={this.state.content}
         />
         <Footer 

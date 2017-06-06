@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Footer extends Component {
   render() {
+    console.log("Hey, I'm from FOOTER");
     const {
       footerRow, wrapper, buttonBG,
       btnContent, btnText, btnIcon
@@ -36,11 +37,14 @@ export default class Footer extends Component {
       return tabBG;
     };
 
+    // const 
+
     return (
       <View style={footerRow}>
         {
           tabs.map((tab) => 
-          <Image style={buttonBG}
+          <Image 
+            style={[buttonBG]}
             source={showDarkBGifActive(tab)}
             btnTitle={tab.title}
             buttonIcon={tab.icon}
@@ -49,12 +53,15 @@ export default class Footer extends Component {
             <TouchableOpacity 
               style={btnContent}
               onPress={() => this.props.change(tab)}
+              underlayColor={"rgba(0, 0, 0, 0)"}
             >
-              <Icon
-                name={tab.icon}
-                style={btnIcon}
-              />
-              <Text style={btnText}> {capitalize(tab.title)} </Text>
+              <View>
+                <Icon
+                  name={tab.icon}
+                  style={btnIcon}
+                />
+                <Text style={btnText}> {capitalize(tab.title)} </Text>
+              </View>
             </TouchableOpacity>
           </Image>
           )
@@ -84,12 +91,12 @@ const styles = {
   btnContent: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
     justifyContent: 'space-between',
-    // shadowOffset: { width: 2, height: 2 },
-    // shadowOpacity: .5,
-    // shadowRadius: 3,
-    // shadowColor: 'brown',
     paddingLeft: '27%',
     paddingRight: '27%',
+    // shadowOffset: { width: 2, height: 2 },
+    // shadowOpacity: .5,
+    // shadowRadius: 5,
+    // shadowColor: 'brown',
   },
   btnText: {
     color: 'brown',

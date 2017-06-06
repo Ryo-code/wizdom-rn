@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.44.0",
+    "react-native-elevated-view": "0.0.4",
     "react-native-fa-icons": "^2.0.2",
     "react-native-icons": "^0.7.1",
     "react-native-vector-icons": "^4.1.1"
