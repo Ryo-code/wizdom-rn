@@ -14,7 +14,7 @@ export default class Content extends Component {
   renderDefinition(){
     const { WOTD, defContainer, defTypeAndPronunciation, defBox, defType, 
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
-      factContainer, factText, quoteContainer, quotation, quoter,
+      factContainer, factText, quoteContainer, quotation, quoter, 
     } = styles;
     return (
       <View style={defContainer}>
@@ -72,14 +72,16 @@ export default class Content extends Component {
   renderActive(){
     switch (this.props.current) {
       case 'definition':
-        console.log('boop')
+        console.log('Activated: definition')
         return this.renderDefinition();
         break;
       case 'fact':
+        console.log('Activated: fact')
         return this.renderFact();
         break;
-      case 'quotiation':
-        return renderQuotation();
+      case 'quotation':
+        console.log('Activated: quotation')
+        return this.renderQuotation();
         break;
       default:
         return this.renderDefinition();
@@ -156,7 +158,7 @@ const styles = {
     marginRight: 10, 
     alignItems: 'center',
     justifyContent: 'center',
-    shadowOffset: { width: 5, height: 5 },
+    shadowOffset: { width: 4, height: 5 },
     shadowOpacity: .7,
     shadowRadius: 2,
     shadowColor: 'orange',
@@ -166,7 +168,7 @@ const styles = {
     fontWeight: '500',
   },
   factContainer: {
-    padding: 120,
+    padding: '10%',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
