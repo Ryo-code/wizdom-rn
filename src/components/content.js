@@ -9,13 +9,14 @@ export default class Content extends Component {
 
   render() {
 
-    const { wrapper, WOTD, defTypeAndPronunciation, defBox, defType, definitions, 
-      exampleText, exampleBox, 
-      didYouKnowBox, didYouKnow } = styles;
+    const { wrapper, WOTD, defContainer, defTypeAndPronunciation, defBox, defType, 
+      definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
+      factContainer, factText, quoteContainer, quotation, quoter,
+    } = styles;
 
     let showDefinition = () => {
       return (
-        <View style={{marginBottom: 75}}>
+        <View style={defContainer}>
           <View style={defBox}>
             <Text style={WOTD}>whatever </Text>
             <Text style={defTypeAndPronunciation}>
@@ -36,27 +37,28 @@ export default class Content extends Component {
             <Text style={exampleText}>Example 2: </Text>
             <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend John said he said something totally different, like omg!</Text>
           </Text>
-          <View style={didYouKnowBox}>
+          <ScrollView contentContainerStyle={didYouKnowBox}>
             <Text style={didYouKnow}>Food for Thought - a poem about Whatever: </Text>
-            <Text> "Whatever is we only know As in our minds we find it so; No staring fact is half so clear As one dim, preconceived idea -- No matter how the fact may glow. Vainly may Truth her trumpet blow To stir our minds; like heavy dough They stick to what they think — won’t hear Whatever is. Our ancient myths in solid row Stand up — we simply have to go And choke each fiction old and dear Before the modest facts appear; Then we may grasp, reluctant, slow, Whatever is." </Text>
-          </View>
+            <Text>Whatever is we only know As in our minds we find it so; No staring fact is half so clear As one dim, preconceived idea -- No matter how the fact may glow. Vainly may Truth her trumpet blow To stir our minds; like heavy dough They stick to what they think — won’t hear Whatever is. Our ancient myths in solid row Stand up — we simply have to go And choke each fiction old and dear Before the modest facts appear; Then we may grasp, reluctant, slow, Whatever is.</Text>
+            <Text> </Text>
+          </ScrollView>
         </View>
       );
     };
 
     let showFact = () => {
       return (
-        <View>
-          <Text> Stuff happens nine 9 out of 10 times per day for the average mammal </Text>
+        <View style={factContainer}>
+          <Text style={factText}> Penguins swim up to 3,100 miles in a year </Text>
         </View>
       );
     };
 
     let showQuotation = () => {
       return (
-        <View>
-          <Text> Stuff is to things as people are to whatever... </Text>
-          <Text> -Martin Whatevs </Text>
+        <View style={quoteContainer}>
+          <Text style={quotation}>We only have to look around us to see how complexity and psychic temperature are still rising: and rising no longer on the scale of the individual but now on that of the planet. This indication is so familiar to us that we cannot but recognize the objective, experiential, reality of a transformation of the planet as a whole.</Text>
+          <Text style={quoter}> ~ Pierre Teilhard de Chardin </Text>
         </View>
       );
     };
@@ -77,11 +79,11 @@ export default class Content extends Component {
     const renderContentIfActive = (tab) => {
       {console.log("    tab~~~~~~~~~!!!", tab.title)}
       {console.log("current=========!!!", this.props.current)}
+        let currentContent = tab.content;
       if(this.props.current === tab.title) {
         console.log("It's a match!");
-        let currentContent = tab.content;
-        return currentContent;
       }
+        return currentContent;
     };
 
     return (
@@ -107,8 +109,15 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: 'snow',
-    margin: 30,
+    marginTop: 25,
+    marginBottom: 30,
     bottom: 25,
+    flex: 1,
+  },
+  defContainer:{
+    marginLeft: 20,
+    marginRight: 20,
+    // marginTop: 0,
   },
   defBox: {
     borderColor: 'orange',
@@ -124,7 +133,7 @@ const styles = {
   },
   defTypeAndPronunciation: {
     textAlign: 'center',
-    color: 'firebrick',
+    color: '#EA5F02',
     fontWeight: '100',
   },
   defType: {
@@ -140,17 +149,58 @@ const styles = {
   exampleText: {
     fontWeight: '700',
     color: 'orange',
-    fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Regular' : 'serif',
+    fontFamily: (Platform.OS === 'ios') ? 'AvenirNext-Regular' : 'sans-serif',
     fontSize: 13,
   },
   didYouKnowBox: {
-    marginTop: 20,
     backgroundColor: 'rgba(240, 240, 240, 240)',
-    padding: 10,
+    padding: 13,
     borderRadius: 10,
+    marginTop: 20,
+    marginBottom: 10,
+    marginLeft: 1,
+    marginRight: 10, 
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: .7,
+    shadowRadius: 2,
+    shadowColor: 'orange',
   },
   didYouKnow: {
     fontStyle: 'italic',
-    fontWeight: '500'
+    fontWeight: '500',
+  },
+  factContainer: {
+    padding: 120,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  factText: {
+    fontSize: 25,
+    lineHeight: 55,
+    textAlign: 'center',
+    fontWeight: '900',
+    fontFamily: (Platform.OS === 'ios') ? 'Apple SD Gothic Neo' : 'sans-serif',
+  },
+  quoteContainer: {
+    // backgroundColor: 'pink',
+    padding: 25,
+    marginTop: 50,
+    marginBottom: 50,
+  },
+  quotation: {
+    fontSize: 20,
+    textAlign: 'center',
+    fontWeight: '500',
+    fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
+  },
+  quoter: {
+    textAlign: 'right',
+    fontStyle: 'italic',
+    fontSize: 18,
+    fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
+    fontWeight: '400'
   },
 }
