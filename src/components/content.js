@@ -16,6 +16,7 @@ export default class Content extends Component {
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
       factContainer, factText, quoteContainer, quotation, quoter, 
     } = styles;
+
     return (
       <View style={defContainer}>
         <View style={defBox}>
@@ -49,11 +50,19 @@ export default class Content extends Component {
 
   renderFact() {
     const { factContainer, factText } = styles;
-      return (
-        <View style={factContainer}>
-          <Text style={factText}> Penguins swim up to 3,100 miles in a year </Text>
-        </View>
-      );
+    return (
+      <View style={factContainer}>
+        <Text style={factText}> Penguins swim up to 3,100 miles in a year </Text>
+      </View>
+    );
+  }
+
+  renderNews() {
+    return (
+      <View>
+        <Text> Here's where the news goes </Text>
+      </View>
+    );
   }
 
   renderQuotation() {
@@ -61,12 +70,12 @@ export default class Content extends Component {
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
       factContainer, factText, quoteContainer, quotation, quoter,
     } = styles;
-      return (
-        <View style={quoteContainer}>
-          <Text style={quotation}>We only have to look around us to see how complexity and psychic temperature are still rising: and rising no longer on the scale of the individual but now on that of the planet. This indication is so familiar to us that we cannot but recognize the objective, experiential, reality of a transformation of the planet as a whole.</Text>
-          <Text style={quoter}> ~ Pierre Teilhard de Chardin </Text>
-        </View>
-      );
+    return (
+      <View style={quoteContainer}>
+        <Text style={quotation}>We only have to look around us to see how complexity and psychic temperature are still rising: and rising no longer on the scale of the individual but now on that of the planet. This indication is so familiar to us that we cannot but recognize the objective, experiential, reality of a transformation of the planet as a whole.</Text>
+        <Text style={quoter}> ~ Pierre Teilhard de Chardin </Text>
+      </View>
+    );
   }
 
   renderActive(){
@@ -78,6 +87,10 @@ export default class Content extends Component {
       case 'fact':
         console.log('Activated: fact')
         return this.renderFact();
+        break;
+      case 'news':
+        console.log('Activated: news')
+        return this.renderNews();
         break;
       case 'quotation':
         console.log('Activated: quotation')
@@ -140,7 +153,7 @@ const styles = {
     marginBottom: 10,
   },
   exampleBox: {
-    marginTop: 10,
+    marginTop: 5,
   },
   exampleText: {
     fontWeight: '700',

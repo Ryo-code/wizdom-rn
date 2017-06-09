@@ -22,6 +22,9 @@ export default class Footer extends Component {
           title: 'fact',
           icon: 'globe',
       }, {
+          title: 'news',
+          icon: 'newspaper-o',
+      }, {
           title: 'quotation',
           icon: 'quote-right',
       }
@@ -44,7 +47,8 @@ export default class Footer extends Component {
             source={showDarkBGifActive(tab)}
             btnTitle={tab.title}
             buttonIcon={tab.icon}
-            key={tab.icon.length}
+            key={tab.icon.length + tab.title.length} 
+            //If the tab doesn't render, you should make the key MORE unique
           >
             <TouchableOpacity 
               style={btnContent}
@@ -87,8 +91,8 @@ const styles = {
   btnContent: {
     backgroundColor: 'rgba(0, 0, 0, 0)',
     justifyContent: 'space-between',
-    paddingLeft: '27%',
-    paddingRight: '27%',
+    paddingLeft: '15%',
+    paddingRight: '15%',
     // shadowOffset: { width: 2, height: 2 },
     // shadowOpacity: .5,
     // shadowRadius: 5,
