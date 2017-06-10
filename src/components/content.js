@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Dimensions, Platform } from 'react-native';
+import { View, Text, ScrollView, Dimensions, Platform, Linking } from 'react-native';
+import Hyperlink from 'react-native-hyperlink';
+
 //import scraper in this file?
 
 export default class Content extends Component {
@@ -16,6 +18,8 @@ export default class Content extends Component {
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
       factContainer, factText, quoteContainer, quotation, quoter, 
     } = styles;
+
+  contentBGcolour = "white";
 
     return (
       <View style={defContainer}>
@@ -37,7 +41,7 @@ export default class Content extends Component {
         </Text>
         <Text style={exampleBox}>
           <Text style={exampleText}>Example 2: </Text>
-          <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend John said he said something totally different, like omg!</Text>
+          <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend Billy said he said something totally different, so now I don't know what to think!</Text>
         </Text>
         <ScrollView contentContainerStyle={didYouKnowBox}>
           <Text style={didYouKnow}>Food for Thought - a poem about Whatever: </Text>
@@ -58,18 +62,47 @@ export default class Content extends Component {
   }
 
   renderNews() {
+    const { newsContainer, newsTitle, newsSource, newsRdtCommentsLink } = styles;
     return (
-      <View>
-        <Text> Here's where the news goes </Text>
+      <View style={newsContainer}>  
+        <Text style={newsTitle}
+          onPress={() => Linking.openURL('http://www.bbc.com/news/live/election-2017-40171454')}
+        > 
+          Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election 
+        </Text>
+
+        <Text style={newsSource}> Source: bbc.co.uk </Text>
+
+        <Text>
+          <Text>Read what </Text>
+          <Text style={newsRdtCommentsLink}
+            onPress={() => Linking.openURL('https://iu.reddit.com/r/worldnews/comments/6g6aoq/conservative_party_fail_to_secure_a_majority/')}
+          > 
+            3456+ Reddit commenters
+          </Text>
+          <Text> are saying about this story.</Text>
+        </Text>
       </View>
     );
   }
+
+// export const parseAndReplace = () =>
+//   <Hyperlink
+//     linkStyle={ { color: '#2980b9', fontSize: 20 } }
+//     linkText={ url => url === 'https://github.com/obipawan/hyperlink' ? 'Hyperlink' : url }
+//   >
+//     <Text style={ { fontSize: 15 } }>
+//       Make clickable strings cleaner with https://github.com/obipawan/hyperlink
+//     </Text>
+//   </Hyperlink>
+
 
   renderQuotation() {
     const { WOTD, defContainer, defTypeAndPronunciation, defBox, defType, 
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
       factContainer, factText, quoteContainer, quotation, quoter,
     } = styles;
+    
     return (
       <View style={quoteContainer}>
         <Text style={quotation}>We only have to look around us to see how complexity and psychic temperature are still rising: and rising no longer on the scale of the individual but now on that of the planet. This indication is so familiar to us that we cannot but recognize the objective, experiential, reality of a transformation of the planet as a whole.</Text>
@@ -113,11 +146,13 @@ export default class Content extends Component {
   }
 }
 
+let contentBGcolour = "white";
+
 const styles = {
   wrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'snow',
+    backgroundColor: contentBGcolour,
     marginTop: 25,
     marginBottom: 30,
     bottom: 25,
@@ -150,7 +185,7 @@ const styles = {
   },
   definitions: {
     // marginTop: 10,
-    marginBottom: 10,
+    marginBottom: 5,
   },
   exampleBox: {
     marginTop: 5,
@@ -165,7 +200,7 @@ const styles = {
     backgroundColor: 'rgba(240, 240, 240, 240)',
     padding: 13,
     borderRadius: 10,
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 10,
     marginLeft: 1,
     marginRight: 10, 
@@ -194,10 +229,10 @@ const styles = {
     fontFamily: (Platform.OS === 'ios') ? 'Apple SD Gothic Neo' : 'sans-serif',
   },
   quoteContainer: {
-    // backgroundColor: 'pink',
     padding: 25,
     marginTop: 50,
     marginBottom: 50,
+    flex: 1,
   },
   quotation: {
     fontSize: 20,
@@ -212,4 +247,35 @@ const styles = {
     fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
     fontWeight: '400'
   },
+  newsContainer: {
+    // flex: 1,
+    backgroundColor: 'snow',
+    paddingLeft: '15%',
+    paddingRight: '15%',
+    justifyContent: 'space-around',
+  },
+  newsTitle: {
+    // backgroundColor: 'pink',
+    fontSize: 20,
+    color: 'mediumblue',
+    fontWeight: '700',
+    textShadowOffset: { width: 3, height: 3 },
+    textShadowRadius: 1,
+    textShadowColor: '#DDDDDD',
+  },
+  newsSource: {
+    // backgroundColor: 'yellow',
+    textAlign: 'center',
+    marginTop: 5,
+    marginBottom: 20,
+  },
+  newsRdtCommentsLink: {
+    // backgroundColor: 'orange',
+    color: 'mediumblue',
+    fontWeight: '500',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 1,
+    textShadowColor: '#DDDDDD',
+  },
+  
 }
