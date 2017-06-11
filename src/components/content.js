@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions, Platform, Linking } from 'react-native';
 import Hyperlink from 'react-native-hyperlink';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 //import scraper in this file?
 
@@ -56,13 +57,13 @@ export default class Content extends Component {
     const { factContainer, factText } = styles;
     return (
       <View style={factContainer}>
-        <Text style={factText}> Penguins swim up to 3,100 miles in a year </Text>
+        <Text style={factText}> Babies smile an average of 200 times a day.  The average woman smiles 62 times a day and the average man only 8. </Text>
       </View>
     );
   }
 
   renderNews() {
-    const { newsContainer, newsTitle, newsSource, newsRdtCommentsLink } = styles;
+    const { newsContainer, newsTitle, newsSource, redditCommentsBox, newsRdtCommentsLink } = styles;
     return (
       <View style={newsContainer}>  
         <Text style={newsTitle}
@@ -73,7 +74,8 @@ export default class Content extends Component {
 
         <Text style={newsSource}> Source: bbc.co.uk </Text>
 
-        <Text>
+
+        <Text style={redditCommentsBox}>
           <Text>Read what </Text>
           <Text style={newsRdtCommentsLink}
             onPress={() => Linking.openURL('https://iu.reddit.com/r/worldnews/comments/6g6aoq/conservative_party_fail_to_secure_a_majority/')}
@@ -86,27 +88,24 @@ export default class Content extends Component {
     );
   }
 
-// export const parseAndReplace = () =>
-//   <Hyperlink
-//     linkStyle={ { color: '#2980b9', fontSize: 20 } }
-//     linkText={ url => url === 'https://github.com/obipawan/hyperlink' ? 'Hyperlink' : url }
-//   >
-//     <Text style={ { fontSize: 15 } }>
-//       Make clickable strings cleaner with https://github.com/obipawan/hyperlink
-//     </Text>
-//   </Hyperlink>
-
 
   renderQuotation() {
     const { WOTD, defContainer, defTypeAndPronunciation, defBox, defType, 
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
       factContainer, factText, quoteContainer, quotation, quoter,
     } = styles;
-    
+
     return (
       <View style={quoteContainer}>
-        <Text style={quotation}>We only have to look around us to see how complexity and psychic temperature are still rising: and rising no longer on the scale of the individual but now on that of the planet. This indication is so familiar to us that we cannot but recognize the objective, experiential, reality of a transformation of the planet as a whole.</Text>
-        <Text style={quoter}> ~ Pierre Teilhard de Chardin </Text>
+        <Text style={quotation}>
+          The fact that we're all connected, the fact that we've got this information space — does change the parameters. 
+          It changes the way people live and work. It changes things for good and for bad. 
+          But I think, in general, it's clear that most bad things come from misunderstanding, and communication is generally the way to resolve misunderstandings — 
+          and the Web's a form of communications — so it generally should be good. 
+          But I think, also, we have to watch whether we preserve the stability of the world … We need to look at the whole society and think, "Are we actually thinking about what we're doing as we go forward, and are we preserving the really important values that we have in society? 
+          Are we keeping it democratic, and open, and so on?"        
+        </Text>
+        <Text style={quoter}> ~ Tim Berners-Lee </Text>
       </View>
     );
   }
@@ -161,7 +160,6 @@ const styles = {
   defContainer:{
     marginLeft: 20,
     marginRight: 20,
-    // marginTop: 0,
   },
   defBox: {
     borderColor: 'orange',
@@ -184,7 +182,6 @@ const styles = {
     fontStyle: 'italic',
   },
   definitions: {
-    // marginTop: 10,
     marginBottom: 5,
   },
   exampleBox: {
@@ -216,66 +213,75 @@ const styles = {
     fontWeight: '500',
   },
   factContainer: {
-    padding: '10%',
+    padding: '15%',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   factText: {
-    fontSize: 25,
-    lineHeight: 55,
+    fontSize: 20,
+    lineHeight: 30,
     textAlign: 'center',
-    fontWeight: '900',
+    fontWeight: '500',
     fontFamily: (Platform.OS === 'ios') ? 'Apple SD Gothic Neo' : 'sans-serif',
   },
   quoteContainer: {
-    padding: 25,
-    marginTop: 50,
-    marginBottom: 50,
-    flex: 1,
+    padding: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // paddingTop: 150,
+    // paddingBottom: 150,
+    // backgroundColor: 'pink',
+    // alignSelf: 'stretch',
+    // width: '100%',
+    // flex: 1,
   },
   quotation: {
-    fontSize: 20,
+    fontSize: 17.5,
     textAlign: 'center',
     fontWeight: '500',
     fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
+    // width: '100%',
+    // alignSelf: 'stretch',
+    // flex: 1,
   },
   quoter: {
     textAlign: 'right',
     fontStyle: 'italic',
-    fontSize: 18,
+    fontSize: 17.5,
     fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
-    fontWeight: '400'
+    fontWeight: '500',
+    alignSelf: 'flex-end',
   },
   newsContainer: {
     // flex: 1,
-    backgroundColor: 'snow',
-    paddingLeft: '15%',
-    paddingRight: '15%',
+    paddingLeft: '13%',
+    paddingRight: '13%',
     justifyContent: 'space-around',
   },
   newsTitle: {
-    // backgroundColor: 'pink',
     fontSize: 20,
     color: 'mediumblue',
+    textAlign: 'justify',
     fontWeight: '700',
+    lineHeight: 30,
     textShadowOffset: { width: 3, height: 3 },
     textShadowRadius: 1,
     textShadowColor: '#DDDDDD',
   },
   newsSource: {
-    // backgroundColor: 'yellow',
     textAlign: 'center',
-    marginTop: 5,
-    marginBottom: 20,
+    marginTop: 10,
+    marginBottom: 50,
+  },
+  redditCommentsBox: {
+    fontSize: 15,
   },
   newsRdtCommentsLink: {
-    // backgroundColor: 'orange',
     color: 'mediumblue',
     fontWeight: '500',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1,
     textShadowColor: '#DDDDDD',
   },
-  
 }
