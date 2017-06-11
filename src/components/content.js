@@ -71,7 +71,7 @@ export default class Content extends Component {
   renderNews() {
     const { 
       newsContainer, newsArticleBox, newsBottomHalf, newsTitle, newsSource, newsSourceIcon, 
-      redditCommentsBox, newsCommentsIcon, newsNumOfCommenters 
+      newsRedditCommentsBox, newsCommentsIcon, newsNumOfCommenters 
     } = styles;
     return (
       <View style={newsContainer}>  
@@ -91,7 +91,7 @@ export default class Content extends Component {
           </View>
         </View>
 
-        <Text style={redditCommentsBox}>
+        <Text style={newsRedditCommentsBox}>
           <Text>Read what</Text>
           <Text style={newsNumOfCommenters}> 3456+ </Text>
           <Text>Reddit commenters are saying about this story. </Text>
@@ -282,12 +282,13 @@ const styles = {
     paddingRight: '5%',
     justifyContent: 'space-around',
     flex: 1,
+    backgroundColor: '#EDEDED'
   },
   newsArticleBox: {
     backgroundColor: 'white',
     marginLeft: '5%',
     marginRight: '5%',
-    padding: '5%',
+    padding: 15,
     borderColor: 'grey',
     borderWidth: 1,
     borderRadius: 3,
@@ -303,28 +304,27 @@ const styles = {
     fontFamily: (Platform.OS === 'ios') ? 'Iowan Old Style' : 'serif',
   },
   newsSource: {
-    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
   },
   newsSourceIcon:{
-    fontSize: 35,
-    padding: 10,
+    fontSize: 40,
+    padding: 1,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1.5,
     textShadowColor: 'lightgrey',
     color: 'orange',
   },
   newsCommentsIcon: {
-    fontSize: 31,
-    padding: 10,
+    fontSize: 29,
+    padding: 1,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1.5,
     textShadowColor: 'lightgrey',
     color: 'orange',
   },
-  redditCommentsBox: {
+  newsRedditCommentsBox: {
     fontSize: 15,
     alignSelf: 'center',
   },
