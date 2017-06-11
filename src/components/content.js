@@ -15,39 +15,44 @@ export default class Content extends Component {
   }
 
   renderDefinition(){
-    const { WOTD, defContainer, defTypeAndPronunciation, defBox, defType, 
-      definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
-      quoteContainer, quotation, quoter, 
+    const { WOTD, defMainInfo, defContainer, defTypeAndPronunciation, 
+      WOTDBox, defType, definitions, exampleText, exampleBox, 
+      didYouKnowBox, didYouKnow, quoteContainer, quotation, quoter, 
     } = styles;
 
   contentBGcolour = "white";
 
     return (
       <View style={defContainer}>
-        <View style={defBox}>
-          <Text style={WOTD}>whatever </Text>
-          <Text style={defTypeAndPronunciation}>
-            <Text> what·ev·er | </Text>
-            <Text style={defType}>pronoun</Text>
+        <View style={defMainInfo}>
+          <View style={WOTDBox}>
+            <Text style={WOTD}>ascetic </Text>
+            
+            <Text style={defTypeAndPronunciation}>
+              <Text> uh-SET-ik | </Text>
+              <Text style={defType}>adjective</Text>
+            </Text>
+          </View>
+
+          <Text style={definitions}> 
+            1 : practicing strict self-denial as a measure of personal and especially spiritual discipline 2 : austere in appearance, manner, or attitude 
+          </Text>
+
+          <Text style={exampleBox}>
+            <Text style={exampleText}>Example 1: </Text>
+            <Text> The monks have taken a vow of poverty and maintain an ascetic lifestyle within the walls of the monastery.</Text>
+          </Text>
+          <Text style={exampleBox}>
+            <Text style={exampleText}>Example 2: </Text>
+            <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend Billy said he said something totally different, so now I don't know what to think!</Text>
           </Text>
         </View>
-        <Text style={definitions}>
-          <Text>a : anything or everything that take whatever you want </Text>
-          <Text> | b : no matter what whatever he says, they won't believe him</Text>
-          <Text> | c : whatnot enjoys skiing, hiking, or whatever</Text>
-        </Text>
-        <Text style={exampleBox}>
-          <Text style={exampleText}>Example 1: </Text>
-          <Text> I asked how his day was and all he said was "whatever..." it's so annoying!</Text>
-        </Text>
-        <Text style={exampleBox}>
-          <Text style={exampleText}>Example 2: </Text>
-          <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend Billy said he said something totally different, so now I don't know what to think!</Text>
-        </Text>
+
         <ScrollView contentContainerStyle={didYouKnowBox}>
-          <Text style={didYouKnow}>Food for Thought - a poem about Whatever: </Text>
-          <Text>Whatever is we only know As in our minds we find it so; No staring fact is half so clear As one dim, preconceived idea -- No matter how the fact may glow. Vainly may Truth her trumpet blow To stir our minds; like heavy dough They stick to what they think — won’t hear Whatever is. Our ancient myths in solid row Stand up — we simply have to go And choke each fiction old and dear Before the modest facts appear; Then we may grasp, reluctant, slow, Whatever is.</Text>
-          <Text> </Text>
+          <Text style={didYouKnow}>Food for Thought: </Text>
+          <Text>
+            Ascetic comes from askētikos, a Greek adjective meaning "laborious." Ultimately, it comes from the Greek verb askein, which means "to exercise" or "to work." There aren't many other English words from askein, but there's no dearth of synonyms for ascetic. Severe and austere, for example, are two words that share with ascetic the basic meaning "given to or marked by strict discipline and firm restraint." Ascetic implies abstention from pleasure, comfort, and self-indulgence as spiritual discipline, whereas severe implies standards enforced without indulgence or laxity and may suggest harshness (as in "severe military discipline"). Austere stresses absence of warmth, color, or feeling and may apply to rigorous restraint, simplicity, or self-denial (as in "living an austere life in the country").
+          </Text>
         </ScrollView>
       </View>
     );
@@ -96,7 +101,7 @@ export default class Content extends Component {
           <Text style={newsNumOfCommenters}> 3456+ </Text>
           <Text>Reddit commenters are saying about this story. </Text>
           <Icon
-            name="comments-o"
+            name="comments"
             style={newsCommentsIcon}
             onPress={() => Linking.openURL('https://iu.reddit.com/r/worldnews/comments/6g6aoq/conservative_party_fail_to_secure_a_majority/')}
           />
@@ -109,7 +114,7 @@ export default class Content extends Component {
 
 
   renderQuotation() {
-    const { WOTD, defContainer, defTypeAndPronunciation, defBox, defType, 
+    const { WOTD, defContainer, defTypeAndPronunciation, WOTDBox, defType, 
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
       factContainer, factText, quoteContainer, quotation, quoter,
     } = styles;
@@ -180,7 +185,7 @@ const styles = {
     marginLeft: 15,
     marginRight: 15,
   },
-  defBox: {
+  WOTDBox: {
     borderColor: 'orange',
     borderBottomWidth: 1,
     paddingBottom: 10,
