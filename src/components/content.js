@@ -17,7 +17,7 @@ export default class Content extends Component {
   renderDefinition(){
     const { WOTD, defContainer, defTypeAndPronunciation, defBox, defType, 
       definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
-      factContainer, factText, quoteContainer, quotation, quoter, 
+      quoteContainer, quotation, quoter, 
     } = styles;
 
   contentBGcolour = "white";
@@ -54,33 +54,41 @@ export default class Content extends Component {
   }
 
   renderFact() {
-    const { factContainer, factText } = styles;
+    const { factContainer, factTextBubble, factWhiteSpace, factText } = styles;
     return (
       <View style={factContainer}>
-        <Text style={factText}> Babies smile an average of 200 times a day.  The average woman smiles 62 times a day and the average man only 8. </Text>
+        <View style={factWhiteSpace}/>
+
+        <View style={factTextBubble}>
+          <Text style={factText}> Babies smile an average of 200 times a day.  The average woman smiles 62 times a day and the average man only 8. </Text>
+        </View>
+
+        <View style={factWhiteSpace}/>
       </View>
     );
   }
 
   renderNews() {
     const { 
-      newsContainer, newsTitle, newsSource, newsSourceIcon, 
+      newsContainer, newsTopHalf, newsBottomHalf, newsTitle, newsSource, newsSourceIcon, 
       redditCommentsBox, newsCommentsIcon, newsRdtCommentsLink 
     } = styles;
     return (
       <View style={newsContainer}>  
-        <Text style={newsTitle}
-          onPress={() => Linking.openURL('http://www.bbc.com/news/live/election-2017-40171454')}
-        > 
-          Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election 
-        </Text>
+        <View style={newsTopHalf}>
+          <Text style={newsTitle}
+            onPress={() => Linking.openURL('http://www.bbc.com/news/live/election-2017-40171454')}
+          > 
+            Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election 
+          </Text>
 
-        <View style={newsSource}>
-          <Text> Source: bbc.co.uk </Text>
-          <Icon
-            name="arrow-circle-o-right"
-            style={newsSourceIcon}
-          />
+          <View style={newsSource}>
+            <Text> Source: bbc.co.uk </Text>
+            <Icon
+              name="arrow-circle-o-right"
+              style={newsSourceIcon}
+            />
+          </View>
         </View>
 
         <Text style={redditCommentsBox}>
@@ -226,18 +234,32 @@ const styles = {
     fontStyle: 'italic',
     fontWeight: '500',
   },
-  factContainer: {
-    padding: '15%',
+  factContainer: {  // Media queryができれば、flex-directionを変えるべき
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   factText: {
-    fontSize: 20,
-    lineHeight: 30,
+    fontSize: 18,
+    lineHeight: 25,
     textAlign: 'center',
     fontWeight: '500',
     fontFamily: (Platform.OS === 'ios') ? 'Apple SD Gothic Neo' : 'sans-serif',
+  },
+  factWhiteSpace: {
+    flex: 1,
+    backgroundColor: 'snow',
+  },
+  factTextBubble: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingLeft: 40,
+    paddingRight: 40,
+    marginLeft: '10%',
+    marginRight: '10%',
+    borderRadius: 180,
+    borderWidth: 3,
+    borderStyle: 'dotted',
+    borderColor: 'orange',
   },
   quoteContainer: {
     padding: 30,
@@ -268,9 +290,17 @@ const styles = {
     alignSelf: 'flex-end',
   },
   newsContainer: {
-    paddingLeft: '13%',
-    paddingRight: '13%',
+    paddingLeft: '5%',
+    paddingRight: '5%',
     justifyContent: 'space-around',
+    backgroundColor: 'pink',
+    flex: 1,
+  },
+  newsTopHalf: {
+    backgroundColor: 'white',
+    marginLeft: '5%',
+    marginRight: '5%',
+    padding: '5%',
   },
   newsTitle: {
     fontSize: 20,
@@ -284,7 +314,7 @@ const styles = {
   },
   newsSource: {
     marginTop: 10,
-    marginBottom: 50,
+    // marginBottom: 50,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
