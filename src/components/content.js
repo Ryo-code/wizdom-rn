@@ -16,8 +16,8 @@ export default class Content extends Component {
 
   renderDefinition(){
     const { WOTD, defMainInfo, defContainer, defTypeAndPronunciation, 
-      WOTDBox, defType, definitions, exampleText, exampleBox, 
-      didYouKnowBox, didYouKnow, quoteContainer, quotation, quoter, 
+      WOTDBox, defType, definitions, exampleText, eachExampleBox, 
+      didYouKnowBox, foodForThought, quoteContainer, quotation, quoter, 
     } = styles;
 
   contentBGcolour = "white";
@@ -25,35 +25,40 @@ export default class Content extends Component {
     return (
       <View style={defContainer}>
         <View style={defMainInfo}>
-          <View style={WOTDBox}>
-            <Text style={WOTD}>ascetic </Text>
-            
-            <Text style={defTypeAndPronunciation}>
-              <Text> uh-SET-ik | </Text>
-              <Text style={defType}>adjective</Text>
+          <ScrollView>
+            <View style={WOTDBox}>
+              <Text style={WOTD}>ascetic </Text>
+              
+              <Text style={defTypeAndPronunciation}>
+                <Text> uh-SET-ik | </Text>
+                <Text style={defType}>adjective</Text>
+              </Text>
+            </View>
+
+            <Text style={definitions}> 
+              1 : practicing strict self-denial as a measure of personal and especially spiritual discipline 2 : austere in appearance, manner, or attitude 
+              1 : practicing strict self-denial as a measure of personal and especially spiritual discipline 2 : austere in appearance, manner, or attitude 
             </Text>
-          </View>
 
-          <Text style={definitions}> 
-            1 : practicing strict self-denial as a measure of personal and especially spiritual discipline 2 : austere in appearance, manner, or attitude 
-          </Text>
-
-          <Text style={exampleBox}>
-            <Text style={exampleText}>Example 1: </Text>
-            <Text> The monks have taken a vow of poverty and maintain an ascetic lifestyle within the walls of the monastery.</Text>
-          </Text>
-          <Text style={exampleBox}>
-            <Text style={exampleText}>Example 2: </Text>
-            <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend Billy said he said something totally different, so now I don't know what to think!</Text>
-          </Text>
+            <Text style={eachExampleBox}>
+              <Text style={exampleText}>Example 1: </Text>
+              <Text> The monks have taken a vow of poverty and maintain an ascetic lifestyle within the walls of the monastery.</Text>
+            </Text>
+            <Text style={eachExampleBox}>
+              <Text style={exampleText}>Example 2: </Text>
+              <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend Billy said he said something totally different, so now I don't know what to think!</Text>
+            </Text>
+          </ScrollView>
         </View>
 
-        <ScrollView contentContainerStyle={didYouKnowBox}>
-          <Text style={didYouKnow}>Food for Thought: </Text>
-          <Text>
-            Ascetic comes from askētikos, a Greek adjective meaning "laborious." Ultimately, it comes from the Greek verb askein, which means "to exercise" or "to work." There aren't many other English words from askein, but there's no dearth of synonyms for ascetic. Severe and austere, for example, are two words that share with ascetic the basic meaning "given to or marked by strict discipline and firm restraint." Ascetic implies abstention from pleasure, comfort, and self-indulgence as spiritual discipline, whereas severe implies standards enforced without indulgence or laxity and may suggest harshness (as in "severe military discipline"). Austere stresses absence of warmth, color, or feeling and may apply to rigorous restraint, simplicity, or self-denial (as in "living an austere life in the country").
-          </Text>
-        </ScrollView>
+        <View style={didYouKnowBox}>
+          <ScrollView>
+            <Text style={foodForThought}>Food for Thought: </Text>
+            <Text style={{textAlign: "justify"}}>
+              Ascetic comes from askētikos, a Greek adjective meaning "laborious." Ultimately, it comes from the Greek verb askein, which means "to exercise" or "to work." There aren't many other English words from askein, but there's no dearth of synonyms for ascetic. Severe and austere, for example, are two words that share with ascetic the basic meaning "given to or marked by strict discipline and firm restraint." Ascetic implies abstention from pleasure, comfort, and self-indulgence as spiritual discipline, whereas severe implies standards enforced without indulgence or laxity and may suggest harshness (as in "severe military discipline"). Austere stresses absence of warmth, color, or feeling and may apply to rigorous restraint, simplicity, or self-denial (as in "living an austere life in the country").
+            </Text>
+          </ScrollView>
+        </View>
       </View>
     );
   }
@@ -114,10 +119,7 @@ export default class Content extends Component {
 
 
   renderQuotation() {
-    const { WOTD, defContainer, defTypeAndPronunciation, WOTDBox, defType, 
-      definitions, exampleText, exampleBox, didYouKnowBox, didYouKnow, 
-      factContainer, factText, quoteContainer, quotation, quoter,
-    } = styles;
+    const { quoteContainer, quotation, quoter } = styles;
 
     return (
       <View style={quoteContainer}>
@@ -173,17 +175,25 @@ let contentBGcolour = "white";
 
 const styles = {
   wrapper: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: contentBGcolour,
     marginTop: 25,
     marginBottom: 30,
     bottom: 25,
-    flex: 1,
   },
-  defContainer:{
+  defContainer:{  // Media queryができれば、flex-directionを変えるべき
     marginLeft: 15,
     marginRight: 15,
+    // backgroundColor: "pink",
+    padding: 2,
+    // flex: 1,
+  },
+  defMainInfo: {
+    flex: 6,
+    // backgroundColor: "yellow",
+    // justifyContent: "space-around"
   },
   WOTDBox: {
     borderColor: 'orange',
@@ -206,9 +216,11 @@ const styles = {
     fontStyle: 'italic',
   },
   definitions: {
-    marginBottom: 5,
+    marginBottom: 15,
+    borderColor: 'orange',
+    borderBottomWidth: 1,
   },
-  exampleBox: {
+  eachExampleBox: {
     marginTop: 5,
   },
   exampleText: {
@@ -218,25 +230,36 @@ const styles = {
     fontSize: 13,
   },
   didYouKnowBox: {
+    flex: 3,
     backgroundColor: 'rgba(240, 240, 240, 240)',
-    padding: 10,
     borderRadius: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingBottom: .5,
     marginTop: 10,
     marginRight: 8,
     marginBottom: 10,
     marginLeft: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    
+    /** Shadow effect simulated by corner borders for Android (for iOS, shadow props are used) **/
+    borderBottomWidth: (Platform.OS === 'ios') ? 0 : 2.5,
+    borderRightWidth: (Platform.OS === 'ios') ? 0 : 2,
+    borderColor: (Platform.OS === 'ios') ? 'rgba(252, 181, 2, 0)' : 'rgba(252, 181, 2, .5)',
     shadowOffset: { width: 4, height: 5 },
     shadowOpacity: .7,
-    shadowRadius: 2,
+    shadowRadius: 1.5,
     shadowColor: 'orange',
   },
-  didYouKnow: {
+  foodForThought: {
     fontStyle: 'italic',
     fontWeight: '500',
+    textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 5,
   },
-  factContainer: {  // Media queryができれば、flex-directionを変えるべき
+  factContainer: {
     flex: 1,
   },
   factText: {
@@ -266,7 +289,6 @@ const styles = {
     padding: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    // flex: 1,
   },
   quotation: {
     fontSize: 17,
