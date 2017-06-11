@@ -70,14 +70,13 @@ export default class Content extends Component {
 
   renderNews() {
     const { 
-      newsContainer, newsTopHalf, newsBottomHalf, newsTitle, newsSource, newsSourceIcon, 
-      redditCommentsBox, newsCommentsIcon, newsRdtCommentsLink 
+      newsContainer, newsArticleBox, newsBottomHalf, newsTitle, newsSource, newsSourceIcon, 
+      redditCommentsBox, newsCommentsIcon, newsNumOfCommenters 
     } = styles;
     return (
       <View style={newsContainer}>  
-        <View style={newsTopHalf}>
+        <View style={newsArticleBox}>
           <Text style={newsTitle}
-            onPress={() => Linking.openURL('http://www.bbc.com/news/live/election-2017-40171454')}
           > 
             Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election 
           </Text>
@@ -87,21 +86,19 @@ export default class Content extends Component {
             <Icon
               name="arrow-circle-o-right"
               style={newsSourceIcon}
+              onPress={() => Linking.openURL('http://www.bbc.com/news/live/election-2017-40171454')}
             />
           </View>
         </View>
 
         <Text style={redditCommentsBox}>
-          <Text>Read what </Text>
-          <Text style={newsRdtCommentsLink}
-            onPress={() => Linking.openURL('https://iu.reddit.com/r/worldnews/comments/6g6aoq/conservative_party_fail_to_secure_a_majority/')}
-          > 
-            3456+ Reddit commenters
-          </Text>
-          <Text> are saying about this story. </Text>
+          <Text>Read what</Text>
+          <Text style={newsNumOfCommenters}> 3456+ </Text>
+          <Text>Reddit commenters are saying about this story. </Text>
           <Icon
             name="comments-o"
             style={newsCommentsIcon}
+            onPress={() => Linking.openURL('https://iu.reddit.com/r/worldnews/comments/6g6aoq/conservative_party_fail_to_secure_a_majority/')}
           />
         </Text>
 
@@ -246,7 +243,6 @@ const styles = {
   },
   factWhiteSpace: {
     flex: 1,
-    backgroundColor: 'snow',
   },
   factTextBubble: {
     flex: 2,
@@ -293,14 +289,21 @@ const styles = {
     paddingLeft: '5%',
     paddingRight: '5%',
     justifyContent: 'space-around',
-    backgroundColor: 'pink',
+    // backgroundColor: '#DDDDDD',
     flex: 1,
   },
-  newsTopHalf: {
+  newsArticleBox: {
     backgroundColor: 'white',
     marginLeft: '5%',
     marginRight: '5%',
     padding: '5%',
+    borderColor: 'grey',
+    borderWidth: 1,
+    borderRadius: 3,
+    shadowOffset: { width: 5, height: 5 },
+    shadowRadius: 3,
+    // shadowColor: 'orange',
+    shadowOpacity: .6,
   },
   newsTitle: {
     fontSize: 20,
@@ -314,33 +317,31 @@ const styles = {
   },
   newsSource: {
     marginTop: 10,
-    // marginBottom: 50,
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
   },
   newsSourceIcon:{
-    fontSize: 30,
+    fontSize: 35,
     padding: 10,
-    textShadowOffset: { width: 3.5, height: 3.5 },
+    textShadowOffset: { width: 2.5, height: 2.5 },
     textShadowRadius: 1.5,
-    textShadowColor: '#DDDDDD',
+    // textShadowColor: 'lightgrey',
+    color: 'orange',
   },
   newsCommentsIcon: {
-    fontSize: 30,
+    fontSize: 33,
     padding: 10,
-    textShadowOffset: { width: 3.5, height: 3.5 },
+    textShadowOffset: { width: 2.5, height: 2.5 },
     textShadowRadius: 1.5,
-    textShadowColor: '#DDDDDD',
+    textShadowColor: 'lightgrey',
+    color: 'orange',
   },
   redditCommentsBox: {
     fontSize: 15,
+    alignSelf: 'center',
   },
-  newsRdtCommentsLink: {
-    color: 'mediumblue',
+  newsNumOfCommenters: {
     fontWeight: '500',
-    // textShadowOffset: { width: 2, height: 2 },
-    // textShadowRadius: 1,
-    // textShadowColor: '#DDDDDD',
   },
 }
