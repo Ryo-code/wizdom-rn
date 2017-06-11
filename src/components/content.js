@@ -37,7 +37,6 @@ export default class Content extends Component {
 
             <Text style={definitions}> 
               1 : practicing strict self-denial as a measure of personal and especially spiritual discipline 2 : austere in appearance, manner, or attitude 
-              1 : practicing strict self-denial as a measure of personal and especially spiritual discipline 2 : austere in appearance, manner, or attitude 
             </Text>
 
             <Text style={eachExampleBox}>
@@ -46,16 +45,18 @@ export default class Content extends Component {
             </Text>
             <Text style={eachExampleBox}>
               <Text style={exampleText}>Example 2: </Text>
-              <Text> So Tiffany said to Joadie that Beth was all like "WHATEVER" about Greg, but Lawny said that Greg's friend Billy said he said something totally different, so now I don't know what to think!</Text>
+              <Text> "Moore said most of the calabooses were built in small towns, with local labor and local materials 'as cheap as they could because they didn't need a big jail or have the money for a big jail, and most of the offenders would be drunks.'" — Jim Hardin, Rockwall County Herald-Banner (Greenville, Texas), 28 Oct. 2016</Text>
             </Text>
           </ScrollView>
         </View>
 
         <View style={didYouKnowBox}>
           <ScrollView>
-            <Text style={foodForThought}>Food for Thought: </Text>
+            <Text style={foodForThought}>Food for Thought </Text>
             <Text style={{textAlign: "justify"}}>
-              Ascetic comes from askētikos, a Greek adjective meaning "laborious." Ultimately, it comes from the Greek verb askein, which means "to exercise" or "to work." There aren't many other English words from askein, but there's no dearth of synonyms for ascetic. Severe and austere, for example, are two words that share with ascetic the basic meaning "given to or marked by strict discipline and firm restraint." Ascetic implies abstention from pleasure, comfort, and self-indulgence as spiritual discipline, whereas severe implies standards enforced without indulgence or laxity and may suggest harshness (as in "severe military discipline"). Austere stresses absence of warmth, color, or feeling and may apply to rigorous restraint, simplicity, or self-denial (as in "living an austere life in the country").
+              Ascetic comes from askētikos, a Greek adjective meaning "laborious." Ultimately, it comes from the Greek verb askein, which means "to exercise" or "to work." There aren't many other English words from askein, but there's no dearth of synonyms for ascetic. Severe and austere, for example, are two words that share with ascetic the basic meaning "given to or marked by strict discipline and firm restraint." 
+              Ascetic implies abstention from pleasure, comfort, and self-indulgence as spiritual discipline, whereas severe implies standards enforced without indulgence or laxity and may suggest harshness (as in "severe military discipline"). 
+              Austere stresses absence of warmth, color, or feeling and may apply to rigorous restraint, simplicity, or self-denial (as in "living an austere life in the country").
             </Text>
           </ScrollView>
         </View>
@@ -70,7 +71,7 @@ export default class Content extends Component {
         <View style={factWhiteSpace}/>
 
         <View style={factTextBubble}>
-          <Text style={factText}> Babies smile an average of 200 times a day.  The average woman smiles 62 times a day and the average man only 8. </Text>
+          <Text style={factText}> Babies smile an average of 200 times a day. The average woman smiles 62 times a day and the average man only 8. </Text>
         </View>
 
         <View style={factWhiteSpace}/>
@@ -104,7 +105,7 @@ export default class Content extends Component {
         <Text style={newsRedditCommentsBox}>
           <Text>Read what</Text>
           <Text style={newsNumOfCommenters}> 3456+ </Text>
-          <Text>Reddit commenters are saying about this story. </Text>
+          <Text>people are saying about this story. </Text>
           <Icon
             name="comments"
             style={newsCommentsIcon}
@@ -184,16 +185,16 @@ const styles = {
     bottom: 25,
   },
   defContainer:{  // Media queryができれば、flex-directionを変えるべき
-    marginLeft: 15,
-    marginRight: 15,
     // backgroundColor: "pink",
-    padding: 2,
     // flex: 1,
   },
   defMainInfo: {
+    paddingLeft: '4%',
+    paddingRight: '4%',
     flex: 6,
     // backgroundColor: "yellow",
-    // justifyContent: "space-around"
+    justifyContent: "space-around"
+    // borderBottomWidth: 1,
   },
   WOTDBox: {
     borderColor: 'orange',
@@ -216,7 +217,7 @@ const styles = {
     fontStyle: 'italic',
   },
   definitions: {
-    marginBottom: 15,
+    marginBottom: 5,
     borderColor: 'orange',
     borderBottomWidth: 1,
   },
@@ -236,13 +237,13 @@ const styles = {
     paddingLeft: 15,
     paddingRight: 15,
     paddingBottom: .5,
-    marginTop: 10,
-    marginRight: 8,
+    marginTop: 5,
+    marginRight: '4%',
     marginBottom: 10,
-    marginLeft: 1,
+    marginLeft: '4%',
     alignItems: 'center',
     justifyContent: 'center',
-    
+
     /** Shadow effect simulated by corner borders for Android (for iOS, shadow props are used) **/
     borderBottomWidth: (Platform.OS === 'ios') ? 0 : 2.5,
     borderRightWidth: (Platform.OS === 'ios') ? 0 : 2,
@@ -258,6 +259,7 @@ const styles = {
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 5,
+    fontSize: 15,
   },
   factContainer: {
     flex: 1,
@@ -309,16 +311,20 @@ const styles = {
     paddingRight: '5%',
     justifyContent: 'space-around',
     flex: 1,
-    backgroundColor: '#EDEDED'
+    backgroundColor: '#EDEDED',
   },
   newsArticleBox: {
     backgroundColor: 'white',
     marginLeft: '5%',
     marginRight: '5%',
     padding: 15,
-    borderColor: 'grey',
     borderWidth: 1,
     borderRadius: 3,
+    borderColor: 'grey',
+
+    /** Shadow effect simulated by corner borders for Android **/
+    borderBottomWidth: (Platform.OS === 'ios') ? 1 : 2.5,
+    borderRightWidth: (Platform.OS === 'ios') ? 1 : 2,
     shadowOffset: { width: 5, height: 5 },
     shadowRadius: 3,
     shadowOpacity: .6,
@@ -345,7 +351,7 @@ const styles = {
   },
   newsCommentsIcon: {
     fontSize: 29,
-    padding: 1,
+    padding: 10,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1.5,
     textShadowColor: 'lightgrey',
@@ -354,6 +360,8 @@ const styles = {
   newsRedditCommentsBox: {
     fontSize: 15,
     alignSelf: 'center',
+    paddingLeft: 40,
+    paddingRight: 40,
   },
   newsNumOfCommenters: {
     fontWeight: '500',
