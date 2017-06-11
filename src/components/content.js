@@ -63,7 +63,10 @@ export default class Content extends Component {
   }
 
   renderNews() {
-    const { newsContainer, newsTitle, newsSource, redditCommentsBox, newsRdtCommentsLink } = styles;
+    const { 
+      newsContainer, newsTitle, newsSource, newsSourceIcon, 
+      redditCommentsBox, newsCommentsIcon, newsRdtCommentsLink 
+    } = styles;
     return (
       <View style={newsContainer}>  
         <Text style={newsTitle}
@@ -72,8 +75,13 @@ export default class Content extends Component {
           Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election 
         </Text>
 
-        <Text style={newsSource}> Source: bbc.co.uk </Text>
-
+        <View style={newsSource}>
+          <Text> Source: bbc.co.uk </Text>
+          <Icon
+            name="arrow-circle-o-right"
+            style={newsSourceIcon}
+          />
+        </View>
 
         <Text style={redditCommentsBox}>
           <Text>Read what </Text>
@@ -82,8 +90,14 @@ export default class Content extends Component {
           > 
             3456+ Reddit commenters
           </Text>
-          <Text> are saying about this story.</Text>
+          <Text> are saying about this story. </Text>
+          <Icon
+            name="comments-o"
+            style={newsCommentsIcon}
+          />
         </Text>
+
+
       </View>
     );
   }
@@ -158,8 +172,8 @@ const styles = {
     flex: 1,
   },
   defContainer:{
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 15,
+    marginRight: 15,
   },
   defBox: {
     borderColor: 'orange',
@@ -195,12 +209,12 @@ const styles = {
   },
   didYouKnowBox: {
     backgroundColor: 'rgba(240, 240, 240, 240)',
-    padding: 13,
+    padding: 10,
     borderRadius: 10,
     marginTop: 10,
+    marginRight: 8,
     marginBottom: 10,
     marginLeft: 1,
-    marginRight: 10, 
     alignItems: 'center',
     justifyContent: 'center',
     shadowOffset: { width: 4, height: 5 },
@@ -226,7 +240,7 @@ const styles = {
     fontFamily: (Platform.OS === 'ios') ? 'Apple SD Gothic Neo' : 'sans-serif',
   },
   quoteContainer: {
-    padding: 12,
+    padding: 30,
     justifyContent: 'center',
     alignItems: 'center',
     // paddingTop: 150,
@@ -237,7 +251,7 @@ const styles = {
     // flex: 1,
   },
   quotation: {
-    fontSize: 17.5,
+    fontSize: 17,
     textAlign: 'center',
     fontWeight: '500',
     fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
@@ -248,31 +262,46 @@ const styles = {
   quoter: {
     textAlign: 'right',
     fontStyle: 'italic',
-    fontSize: 17.5,
+    fontSize: 17,
     fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
     fontWeight: '500',
     alignSelf: 'flex-end',
   },
   newsContainer: {
-    // flex: 1,
     paddingLeft: '13%',
     paddingRight: '13%',
     justifyContent: 'space-around',
   },
   newsTitle: {
     fontSize: 20,
-    color: 'mediumblue',
+    // color: 'mediumblue',
     textAlign: 'justify',
     fontWeight: '700',
     lineHeight: 30,
-    textShadowOffset: { width: 3, height: 3 },
-    textShadowRadius: 1,
-    textShadowColor: '#DDDDDD',
+    // textShadowOffset: { width: 3, height: 3 },
+    // textShadowRadius: 1,
+    // textShadowColor: '#DDDDDD',
   },
   newsSource: {
-    textAlign: 'center',
     marginTop: 10,
     marginBottom: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  newsSourceIcon:{
+    fontSize: 30,
+    padding: 10,
+    textShadowOffset: { width: 3.5, height: 3.5 },
+    textShadowRadius: 1.5,
+    textShadowColor: '#DDDDDD',
+  },
+  newsCommentsIcon: {
+    fontSize: 30,
+    padding: 10,
+    textShadowOffset: { width: 3.5, height: 3.5 },
+    textShadowRadius: 1.5,
+    textShadowColor: '#DDDDDD',
   },
   redditCommentsBox: {
     fontSize: 15,
@@ -280,8 +309,8 @@ const styles = {
   newsRdtCommentsLink: {
     color: 'mediumblue',
     fontWeight: '500',
-    textShadowOffset: { width: 2, height: 2 },
-    textShadowRadius: 1,
-    textShadowColor: '#DDDDDD',
+    // textShadowOffset: { width: 2, height: 2 },
+    // textShadowRadius: 1,
+    // textShadowColor: '#DDDDDD',
   },
 }
