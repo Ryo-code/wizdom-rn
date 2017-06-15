@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions, Platform, Linking } from 'react-native';
-import Hyperlink from 'react-native-hyperlink';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-//import scraper in this file?
 
 export default class Content extends Component {
   constructor(props) {
@@ -218,8 +215,6 @@ const styles = {
   },
   definitions: {
     marginBottom: 5,
-    borderColor: 'orange',
-    borderBottomWidth: 1,
   },
   eachExampleBox: {
     marginTop: 5,
