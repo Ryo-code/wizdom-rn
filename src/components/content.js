@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Dimensions, Platform, Linking } from 'react-native';
+import { 
+  View, Text, ScrollView, Dimensions, Platform, Linking, LayoutAnimation, UIManager
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Content extends Component {
@@ -9,6 +11,13 @@ export default class Content extends Component {
     this.renderDefinition = this.renderDefinition.bind(this);
     this.renderFact = this.renderFact.bind(this);
     this.renderQuotation = this.renderQuotation.bind(this);
+  }
+
+  componentWillUpdate() {
+    LayoutAnimation.easeInEaseOut();
+    if (Platform.OS === 'android') {
+      UIManager.setLayoutAnimationEnabledExperimental(true)
+    }
   }
 
   renderDefinition(){
