@@ -8,28 +8,55 @@ import api from './utilities/api';
 export default class App extends Component {
   state = {
     title: 'definition',
-    fact: {}
+    definition: {},
+    fact: {},
+    news: {},
+    quotation: {}
   };
 
   componentWillMount(){
-    api.getFactFromAPI().then((res) => {
-      console.log("res!!!!!!!", res)
+    api.getDefinitionFromDB().then((res) => {
+      console.log("res for DEFINITION!!!!!!!", res)
+      this.setState({
+        definition: res
+      });
+      console.log("State!~~~~~>", this.state)
+    })
+
+    api.getFactFromDB().then((res) => {
+      console.log("res for FACT!!!!!!!", res)
       this.setState({
         fact: res
-      })
+      });
+      console.log("State!~~~~~>", this.state)
     })
+
+    api.getNewsFromDB().then((res) => {
+      console.log("res for NEWS!!!!!!!", res)
+      this.setState({
+        news: res
+      });
+      console.log("State!~~~~~>", this.state)
+    })
+
+    api.getQuotationFromDB().then((res) => {
+      console.log("res for QUOTE!!!!!!!", res)
+      this.setState({
+        quotation: res
+      });
+      console.log("State!~~~~~>", this.state)
+    })
+
   }
 
   // ON BUTTON PRESS
   changeState(selected) {
-    // console.log('"selected" is this...', selected);
     this.setState({
       title: selected.title,
     });
   };
 
   render() {
-    // console.log('this.state ~~>', this.state);
     return (
       <View style={{ flex: 1 }}>
         <Header
