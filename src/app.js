@@ -46,7 +46,6 @@ export default class App extends Component {
       });
       console.log("State!~~~~~>", this.state)
     })
-
   }
 
   // ON BUTTON PRESS
@@ -64,6 +63,10 @@ export default class App extends Component {
         />
         <Content
           current={this.state.title}
+          definitionData={this.state.definition}
+          factData={this.state.fact}
+          newsData={this.state.news}
+          quotationData={this.state.quotation}
         />
         <Footer
           current={this.state.title}

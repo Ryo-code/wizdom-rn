@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, Platform, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const News = () => {
+const News = ( props ) => {
+  console.log("props...", props);
   const {
     newsContainer, articleBox, newsBottomHalf, title, source, 
     sourceIcon, redditCommentsBox, commentsIcon, numOfCommenters
@@ -13,7 +14,7 @@ const News = () => {
       <View style={articleBox}>
         <Text style={title}
         >
-          Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election
+          {props.data.newsTitle} Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election
         </Text>
 
         <View style={source}>
