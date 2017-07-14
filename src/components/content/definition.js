@@ -1,15 +1,11 @@
 import React from 'react';
-import { 
-  View, Text, ScrollView, Dimensions, Platform, Linking, LayoutAnimation, UIManager
-} from 'react-native';
+import { View, Text, ScrollView, Platform } from 'react-native';
 
 const Definition = () => {
   const { WOTD, defMainInfo, defContainer, defTypeAndPronunciation,
     WOTDBox, defType, definitions, exampleText, eachExampleBox,
     didYouKnowBox, foodForThought, quoteContainer, quotation, quoter,
     } = styles;
-
-  // contentBGcolour = "white";
 
   return (
     <View style={defContainer}>
@@ -51,7 +47,7 @@ const Definition = () => {
       </View>
     </View>
   );
-}
+};
 
 export default Definition;
 

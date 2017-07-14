@@ -43,6 +43,6 @@ export default class App extends Component {
           change={this.changeState.bind(this)}
         />
       </View>
-    )
+    );
   }
-}
+};

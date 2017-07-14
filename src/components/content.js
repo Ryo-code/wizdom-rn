@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { 
-  View, Text, ScrollView, Dimensions, Platform, Linking, LayoutAnimation, UIManager
-} from 'react-native';
+import { ScrollView, Platform, LayoutAnimation, UIManager } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
 import Definition from './content/definition';
 import Fact from './content/fact';
 import News from './content/news';
 import Quotation from './content/quotation';
-
 
 export default class Content extends Component {
   constructor(props) {
@@ -62,8 +60,8 @@ export default class Content extends Component {
         <Active />
       </ScrollView>
     );
-  }
-}
+  };
+};
 
 // let contentBGcolour = "white";
 

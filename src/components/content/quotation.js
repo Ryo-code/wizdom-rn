@@ -1,7 +1,5 @@
 import React from 'react';
-import { 
-  View, Text, ScrollView, Dimensions, Platform, Linking, LayoutAnimation, UIManager
-} from 'react-native';
+import { View, Text, Platform } from 'react-native';
 
 const Quotation = () => {
   const { quoteContainer, quoteStyle, quoterStyle } = styles;
@@ -19,7 +17,7 @@ const Quotation = () => {
       <Text style={quoterStyle}> ~ Tim Berners-Lee </Text>
     </View>
   );
-}
+};
 
 const styles = {
   quoteContainer: {
@@ -40,7 +38,7 @@ const styles = {
     fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
     fontWeight: '500',
     alignSelf: 'flex-end',
-  },
+  }
 }
 
 export default Quotation;

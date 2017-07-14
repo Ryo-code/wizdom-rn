@@ -1,7 +1,5 @@
 import React from 'react';
-import { 
-  View, Text, ScrollView, Dimensions, Platform, Linking, LayoutAnimation, UIManager
-} from 'react-native';
+import { View, Text, Platform, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const News = () => {
@@ -9,6 +7,7 @@ const News = () => {
     newsContainer, articleBox, newsBottomHalf, title, source, 
     sourceIcon, redditCommentsBox, commentsIcon, numOfCommenters
   } = styles;
+
   return (
     <View style={newsContainer}>
       <View style={articleBox}>
@@ -38,15 +37,11 @@ const News = () => {
         />
       </Text>
 
-
     </View>
   );
-}
-
-export default News;
+};
 
 const styles = {
-
   newsContainer: {
     paddingLeft: '5%',
     paddingRight: '5%',
@@ -108,3 +103,5 @@ const styles = {
     fontWeight: '500',
   },
 }
+
+export default News;

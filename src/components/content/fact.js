@@ -1,7 +1,5 @@
 import React from 'react';
-import { 
-  View, Text, ScrollView, Dimensions, Platform, Linking, LayoutAnimation, UIManager
-} from 'react-native';
+import { View, Text, Platform } from 'react-native';
 
 const Fact = () => {
   const { factContainer, textBubble, whiteSpace, factText } = styles;
@@ -16,7 +14,7 @@ const Fact = () => {
       <View style={whiteSpace} />
     </View>
   );
-}
+};
 
 const styles = {
   factContainer: {
@@ -44,7 +42,7 @@ const styles = {
     borderWidth: 3,
     borderStyle: 'dotted',
     borderColor: 'orange',
-  },
+  }
 }
 
 export default Fact;

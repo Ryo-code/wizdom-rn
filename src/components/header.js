@@ -25,8 +25,8 @@ export default class Header extends Component {
           </Text>
         </Image>
       </View>
-    )
-  }
+    );
+  };
 };
 
 const styles = {

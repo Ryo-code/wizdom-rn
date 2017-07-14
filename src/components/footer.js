@@ -68,8 +68,8 @@ export default class Footer extends Component {
         }
       </View>
     );
-  }
-}
+  };
+};
 
 const styles = {
   footerRow: {
