@@ -5,39 +5,40 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 const News = ( props ) => {
   console.log("props...", props);
   const {
-    newsContainer, articleBox, newsBottomHalf, title, source, 
+    newsContainer, articleBox, newsBottomHalf, title, abbrevSource, 
     sourceIcon, redditCommentsBox, commentsIcon, numOfCommenters
   } = styles;
+  const { articleLink, newsTitle, numOfRedditComments, redditLink, source } = props.data;
 
   return (
     <View style={newsContainer}>
       <View style={articleBox}>
-        <Text style={title}
-        >
-          {props.data.newsTitle} Conservative party fail to secure a majority resulting in a hung parliament in the 2017 Election
+        <Text style={title}>
+          {newsTitle} 
         </Text>
 
-        <View style={source}>
-          <Text> Source: bbc.co.uk </Text>
+        <View style={abbrevSource}>
+          <Text> Source: {source} </Text>
           <Icon
             name="arrow-circle-o-right"
             style={sourceIcon}
-            onPress={() => Linking.openURL('http://www.bbc.com/news/live/election-2017-40171454')}
+            onPress={ () => Linking.openURL(articleLink) }
           />
         </View>
       </View>
 
-      <Text style={redditCommentsBox}>
-        <Text>Read what</Text>
-        <Text style={numOfCommenters}> 3456+ </Text>
-        <Text>people are saying about this story. </Text>
-        <Icon
-          name="comments"
-          style={commentsIcon}
-          onPress={() => Linking.openURL('https://iu.reddit.com/r/worldnews/comments/6g6aoq/conservative_party_fail_to_secure_a_majority/')}
-        />
-      </Text>
-
+      <View>
+        <Text style={redditCommentsBox}>
+          <Text>Read what</Text>
+          <Text style={{fontWeight: '500'}}> {numOfRedditComments}+ </Text>
+          <Text>people are saying about this story. </Text>
+          <Icon
+            name="comments"
+            style={commentsIcon}
+            onPress={ () => Linking.openURL(redditLink) }
+          />
+        </Text>
+      </View>
     </View>
   );
 };
@@ -73,7 +74,7 @@ const styles = {
     lineHeight: 30,
     fontFamily: (Platform.OS === 'ios') ? 'Iowan Old Style' : 'serif',
   },
-  source: {
+  abbrevSource: {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
@@ -96,7 +97,6 @@ const styles = {
   },
   redditCommentsBox: {
     fontSize: 15,
-    alignSelf: 'center',
     paddingLeft: 40,
     paddingRight: 40,
   },
