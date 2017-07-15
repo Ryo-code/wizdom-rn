@@ -17,7 +17,10 @@ const News = (props) => {
         </Text>
 
         <View style={abbrevSource}>
-          <Text> Source: {source} </Text>
+          <Text>
+            <Text style={{fontWeight: '500'}}> Source:</Text>
+            <Text> {source} </Text>
+          </Text>
           <Icon
             name="arrow-circle-o-right"
             style={sourceIcon}
