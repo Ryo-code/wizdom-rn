@@ -2,8 +2,7 @@ import React from 'react';
 import { View, Text, Platform, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const News = ( props ) => {
-  console.log("props...", props);
+const News = (props) => {
   const {
     newsContainer, articleBox, newsBottomHalf, title, abbrevSource, 
     sourceIcon, redditCommentsBox, commentsIcon, numOfCommenters

@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, ScrollView, Platform } from 'react-native';
 
-const Definition = () => {
+const Definition = (props) => {
+  console.log("props...", props);
   const { WOTD, defMainInfo, defContainer, defTypeAndPronunciation,
     WOTDBox, defType, definitions, exampleText, eachExampleBox,
     didYouKnowBox, foodForThought, quoteContainer, quotation, quoter,
-    } = styles;
+  } = styles;
+  // const { } = props.data;
 
   return (
     <View style={defContainer}>

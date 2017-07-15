@@ -1,14 +1,14 @@
 import React from 'react';
 import { View, Text, Platform } from 'react-native';
 
-const Fact = () => {
+const Fact = (props) => {
   const { factContainer, textBubble, whiteSpace, factText } = styles;
   return (
     <View style={factContainer}>
       <View style={whiteSpace} />
 
       <View style={textBubble}>
-        <Text style={factText}> Babies smile an average of 200 times a day. The average woman smiles 62 times a day and the average man only 8. </Text>
+        <Text style={factText}> {props.data.factoid} Babies smile an average of 200 times a day. The average woman smiles 62 times a day and the average man only 8. </Text>
       </View>
 
       <View style={whiteSpace} />
