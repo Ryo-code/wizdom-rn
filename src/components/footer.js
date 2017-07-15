@@ -19,9 +19,9 @@ export default class Footer extends Component {
           title: 'definition',
           icon: 'book',
       }, {
-      //     title: 'fact',
-      //     icon: 'globe',
-      // }, {
+          title: 'fact',
+          icon: 'globe',
+      }, {
           title: 'news',
           icon: 'newspaper-o',
       }, {

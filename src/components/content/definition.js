@@ -26,6 +26,7 @@ const Definition = (props) => {
           <View style={WOTDBox}>
             <Text style={WOTD}>{word} </Text>
 
+
             <Text style={defTypeAndPronunciation}>
               <Text> {pronunciation}  | </Text>
               <Text style={defType}>{wordType}</Text>
@@ -33,6 +34,7 @@ const Definition = (props) => {
           </View>
 
           <View>
+            <Text style={exampleText}>Definitions</Text>
             {definitions.map((def, i) => <Text key={i}> {def} </Text>)}
           </View>
 
