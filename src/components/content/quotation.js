@@ -12,7 +12,7 @@ const Quotation = (props) => {
       <Text style={quoteStyle}> {quote} </Text>
       <Text 
         style={quoterStyle}
-        onPress={ () => Linking.openURL(redditLink) }
+        onPress={ () => Linking.openURL(quoterLink) }
       >
         ~{quoter} 
       </Text>

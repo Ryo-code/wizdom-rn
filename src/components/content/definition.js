@@ -2,21 +2,22 @@ import React from 'react';
 import { View, Text, ScrollView, Platform } from 'react-native';
 
 const Definition = (props) => {
-  console.log("Props...", props)
+  // console.log("Props...", props)
   const { WOTD, defMainInfo, defContainer, defTypeAndPronunciation,
     WOTDBox, defType, exampleText, eachExampleBox,
     didYouKnowBox, foodForThought, quoteContainer, quotation, quoter,
   } = styles;
 
-  const { definitions, didYouKnow, example1, example2, pronunciation, 
+  const { didYouKnow, example1, example2, pronunciation, 
     word, wordType  
   } = props.data;
+  console.log("This mofo...", props.data)
 
-  // renderDefinitions(){
-  //   definitions.map((def) => {
-  //     return <Text> def </Text>
-  //   )};
-  // };
+  const definitions = props.data.definitions || [];
+
+  // const renderDefinitions =
+  console.log('blah', definitions); 
+
 
   return (
     <View style={defContainer}>
@@ -31,13 +32,9 @@ const Definition = (props) => {
             </Text>
           </View>
 
-          <Text style={{marginBottom: 5}}>
-
-            {/* 
-            {this.renderDefinitions.bind(this)}
-              1 : practicing strict self-denial as a measure of personal and especially spiritual discipline 2 : austere in appearance, manner, or attitude
-            */}
-          </Text>
+          <View>
+            {definitions.map((def, i) => <Text key={i}> {def} </Text>)}
+          </View>
 
           <Text style={eachExampleBox}>
             <Text style={exampleText}>Example 1: </Text>
