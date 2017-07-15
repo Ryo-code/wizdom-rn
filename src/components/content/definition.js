@@ -2,22 +2,14 @@ import React from 'react';
 import { View, Text, ScrollView, Platform } from 'react-native';
 
 const Definition = (props) => {
-  // console.log("Props...", props)
   const { WOTD, defMainInfo, defContainer, defTypeAndPronunciation,
     WOTDBox, defType, exampleText, eachExampleBox,
     didYouKnowBox, foodForThought, quoteContainer, quotation, quoter,
   } = styles;
 
-  const { didYouKnow, example1, example2, pronunciation, 
-    word, wordType  
-  } = props.data;
-  console.log("This mofo...", props.data)
+  const { didYouKnow, example1, example2, pronunciation, word, wordType  } = props.data;
 
   const definitions = props.data.definitions || [];
-
-  // const renderDefinitions =
-  console.log('blah', definitions); 
-
 
   return (
     <View style={defContainer}>
@@ -35,7 +27,7 @@ const Definition = (props) => {
 
           <View>
             <Text style={exampleText}>Definitions</Text>
-            {definitions.map((def, i) => <Text key={i}> {def} </Text>)}
+            {definitions.map((def, i) => <Text key={i}>{def}</Text>)}
           </View>
 
           <Text style={eachExampleBox}>
@@ -46,7 +38,6 @@ const Definition = (props) => {
             <Text style={exampleText}>Example 2: </Text>
             <Text> {example2} </Text>
           </Text>
-          {/* */}
         </ScrollView>
       </View>
 
