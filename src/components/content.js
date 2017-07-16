@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { ScrollView, Platform, LayoutAnimation, UIManager } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Definition from './content/definition';
 import Fact from './content/fact';
 import News from './content/news';
 import Quotation from './content/quotation';
+import Word from './content/word';
 
 export default class Content extends Component {
   constructor(props) {
@@ -22,9 +22,9 @@ export default class Content extends Component {
 
   renderActive(){
     switch (this.props.current) {
-      case 'definition':
-        console.log('Activated: definition');
-        return <Definition data={this.props.definitionData}/>        
+      case 'word':
+        console.log('Activated: word');
+        return <Word data={this.props.wordData}/>        
         break;
       case 'fact':
         console.log('Activated: fact');
@@ -39,7 +39,7 @@ export default class Content extends Component {
         return <Quotation data={this.props.quotationData}/>
         break;
       default:
-        return <Definition data={this.props.definitionData}/>
+        return <Word data={this.props.wordData}/>
     }
   }
 

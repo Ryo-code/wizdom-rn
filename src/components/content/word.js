@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, ScrollView, Platform } from 'react-native';
 
-const Definition = (props) => {
+const Word = (props) => {
   const { WOTD, defMainInfo, defContainer, defTypeAndPronunciation,
-    WOTDBox, defType, exampleText, eachExampleBox,
-    didYouKnowBox, foodForThought, quoteContainer, quotation, quoter,
+    WOTDBox, exampleText, eachExampleBox, didYouKnowBox,
+    foodForThought, quoteContainer, quotation, quoter,
   } = styles;
 
   const { didYouKnow, example1, example2, pronunciation, word, wordType  } = props.data;
@@ -18,10 +18,9 @@ const Definition = (props) => {
           <View style={WOTDBox}>
             <Text style={WOTD}>{word} </Text>
 
-
             <Text style={defTypeAndPronunciation}>
               <Text> {pronunciation}  | </Text>
-              <Text style={defType}>{wordType}</Text>
+              <Text style={{fontStyle: 'italic'}}>{wordType}</Text>
             </Text>
           </View>
 
@@ -83,9 +82,6 @@ const styles = {
     color: '#EA5F02',
     fontWeight: '100',
   },
-  defType: {
-    fontStyle: 'italic',
-  },
   eachExampleBox: {
     marginTop: 5,
   },
@@ -128,4 +124,4 @@ const styles = {
   }
 }
 
-export default Definition;
+export default Word;

@@ -7,17 +7,17 @@ import api from './utilities/api';
 
 export default class App extends Component {
   state = {
-    title: 'definition',
-    definition: {},
+    title: 'word',
+    word: {},
     fact: {},
     news: {},
     quotation: {}
   };
 
   componentWillMount(){
-    api.getDefinitionFromDB().then((res) => {
+    api.getWordFromDB().then((res) => {
       this.setState({
-        definition: res
+        word: res
       });
     })
 
@@ -55,7 +55,7 @@ export default class App extends Component {
         />
         <Content
           current={this.state.title}
-          definitionData={this.state.definition}
+          wordData={this.state.word}
           factData={this.state.fact}
           newsData={this.state.news}
           quotationData={this.state.quotation}

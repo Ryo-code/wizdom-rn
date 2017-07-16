@@ -1,7 +1,7 @@
 const api = {
-  getDefinitionFromDB(){
+  getWordFromDB(){
     const url = "https://wizdom-app.herokuapp.com";
-    return fetch(url + "/definition").then((res) => res.json());
+    return fetch(url + "/word").then((res) => res.json());
   },
   getFactFromDB(){
     const url = "https://wizdom-app.herokuapp.com";

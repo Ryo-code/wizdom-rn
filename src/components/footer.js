@@ -16,7 +16,7 @@ export default class Footer extends Component {
 
     const tabs = [
       {
-          title: 'definition',
+          title: 'word',
           icon: 'book',
       }, {
           title: 'fact',

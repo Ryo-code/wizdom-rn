@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Platform, Linking } from 'react-native';
 
 const Quotation = (props) => {
-  console.log("props...", props);
   const { quoteContainer, quoteStyle, quoterStyle } = styles;
   const { quote, quoter, quoterLink } = props.data;
   //時間がある時に quoterLinkとimageSrc を使って
