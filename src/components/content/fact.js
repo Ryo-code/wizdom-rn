@@ -5,13 +5,13 @@ const Fact = (props) => {
   const { factContainer, textBubble, whiteSpace, factText } = styles;
   return (
     <View style={factContainer}>
-      <View style={whiteSpace} />
+      <View style={whiteSpace}/>
 
       <View style={textBubble}>
-        <Text style={factText}> {props.data.factoid} Babies smile an average of 200 times a day. The average woman smiles 62 times a day and the average man only 8. </Text>
+        <Text style={factText}> {props.data.factoid} </Text>
       </View>
 
-      <View style={whiteSpace} />
+      <View style={whiteSpace}/>
     </View>
   );
 };
@@ -31,7 +31,7 @@ const styles = {
     flex: 1,
   },
   textBubble: {
-    flex: 2,
+    flex: 2.1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingLeft: 40,

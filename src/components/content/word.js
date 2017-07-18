@@ -19,7 +19,7 @@ const Word = (props) => {
             <Text style={WOTD}>{word} </Text>
 
             <Text style={defTypeAndPronunciation}>
-              <Text> {pronunciation}  | </Text>
+              <Text> {pronunciation} | </Text>
               <Text style={{fontStyle: 'italic'}}>{wordType}</Text>
             </Text>
           </View>

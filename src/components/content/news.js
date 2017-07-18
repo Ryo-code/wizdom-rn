@@ -34,12 +34,12 @@ const News = (props) => {
           <Text>Read what</Text>
           <Text style={{fontWeight: '500'}}> {numOfRedditComments}+ </Text>
           <Text>people are saying about this story. </Text>
-          <Icon
-            name="comments"
-            style={commentsIcon}
-            onPress={ () => Linking.openURL(redditLink) }
-          />
         </Text>
+        <Icon
+          name="comments"
+          style={commentsIcon}
+          onPress={ () => Linking.openURL(redditLink) }
+        />
       </View>
     </View>
   );
@@ -90,12 +90,13 @@ const styles = {
     color: 'orange',
   },
   commentsIcon: {
-    fontSize: 29,
-    padding: 10,
+    fontSize: 32,
+    // padding: 10,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1.5,
     textShadowColor: 'lightgrey',
     color: 'orange',
+    textAlign: 'center'
   },
   redditCommentsBox: {
     fontSize: 15,

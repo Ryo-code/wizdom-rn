@@ -34,12 +34,14 @@ const styles = {
     justifyContent: 'flex-end',
     alignItems: 'center',
     alignSelf: 'center',
+    borderBottomWidth: .5,
+    borderColor: 'firebrick',
   },
   text: {
-    fontSize: 20,
+    fontSize: 22,
     marginBottom: 5,
     fontWeight: '700',
-    color: 'white',
+    color: 'brown',
     backgroundColor: 'rgba(0,0,0,0)',
   },
 }
