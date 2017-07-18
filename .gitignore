@@ -29,6 +29,14 @@ build/
 .gradle
 local.properties
 *.iml
+android/gradle.properties
+
+# Gradle files
+.gradle/
+build/
+
+# Signing files
+.signing/
 
 # node.js
 #
