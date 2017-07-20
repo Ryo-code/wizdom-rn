@@ -7,8 +7,6 @@ export default class Header extends Component {
   }
 
   render() {
-    // console.log("Hi, I'm from the HEADER file");
-
     const { text, container } = styles;
     const capitalize = (string) => {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -34,7 +32,7 @@ const styles = {
     justifyContent: 'flex-end',
     alignItems: 'center',
     alignSelf: 'center',
-    borderBottomWidth: .5,
+    borderWidth: .5,
     borderColor: 'firebrick',
   },
   text: {

@@ -4,8 +4,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const News = (props) => {
   const {
-    newsContainer, articleBox, newsBottomHalf, title, abbrevSource, 
-    sourceIcon, redditCommentsBox, commentsIcon, numOfCommenters
+    newsContainer, articleBox, newsBottomHalf, title, abbrevSource, sourceIcon,
+    commentsWrapper, redditCommentsBox, commentsIcon, numOfCommenters
   } = styles;
   const { articleLink, newsTitle, numOfRedditComments, redditLink, source } = props.data;
 
@@ -13,7 +13,7 @@ const News = (props) => {
     <View style={newsContainer}>
       <View style={articleBox}>
         <Text style={title}>
-          {newsTitle} 
+          {newsTitle}
         </Text>
 
         <View style={abbrevSource}>
@@ -29,7 +29,7 @@ const News = (props) => {
         </View>
       </View>
 
-      <View>
+      <View style={commentsWrapper}>
         <Text style={redditCommentsBox}>
           <Text>Read what</Text>
           <Text style={{fontWeight: '500'}}> {numOfRedditComments}+ </Text>
@@ -89,22 +89,26 @@ const styles = {
     textShadowColor: 'lightgrey',
     color: 'orange',
   },
+  commentsWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft: '15%',
+    paddingRight: '15%',
+  },
+  redditCommentsBox: {
+    fontSize: 15,
+    paddingRight: 10,
+  },
+  numOfCommenters: {
+    fontWeight: '500',
+  },
   commentsIcon: {
     fontSize: 32,
-    // padding: 10,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 1.5,
     textShadowColor: 'lightgrey',
     color: 'orange',
-    textAlign: 'center'
-  },
-  redditCommentsBox: {
-    fontSize: 15,
-    paddingLeft: 40,
-    paddingRight: 40,
-  },
-  numOfCommenters: {
-    fontWeight: '500',
+    textAlign: 'center',
   },
 }
 
