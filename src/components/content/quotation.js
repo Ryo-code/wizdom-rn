@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Platform, Linking } from 'react-native';
+import { View, ScrollView, Text, Platform, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Quotation = (props) => {
@@ -8,7 +8,7 @@ const Quotation = (props) => {
   //時間がある時に quoterLinkとimageSrc を使って
 
   return (
-    <View style={quoteContainer}>
+    <ScrollView contentContainerStyle={quoteContainer}>
       <Text style={quoteStyle}> {quote} </Text>
 
       <Text style={{alignSelf: 'flex-end'}}>
@@ -19,7 +19,7 @@ const Quotation = (props) => {
           onPress={ () => Linking.openURL(quoterLink) }
         />
       </Text>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -30,9 +30,8 @@ const styles = {
     alignItems: 'center',
   },
   quoteStyle: {
-    fontSize: 17,
+    fontSize: 18,
     textAlign: 'center',
-    fontWeight: '500',
     fontFamily: (Platform.OS === 'ios') ? 'Avenir Next' : 'sans-serif',
   },
   quoterStyle: {
