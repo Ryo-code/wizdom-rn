@@ -55,7 +55,6 @@ export default class Content extends Component {
   };
 };
 
-
 const styles = {
   wrapper: {
     flex: 1,
